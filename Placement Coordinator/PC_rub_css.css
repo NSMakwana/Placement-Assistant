@@ -45,8 +45,16 @@
     width: max-content;
     margin-top:0%;
     height:100%;
-    background-color: rgb(2, 153, 153);
+    background-color: rgb(2, 153, 153);   
 }
 #f{
     padding-top: 10px;
+}
+#data{
+    border:1px solid black;
+    margin-left:21.8%;
+    margin-top:3.5%;   
+    height:100%;
+    width:100%;
+    position: fixed;
 }
