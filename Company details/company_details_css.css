@@ -1,0 +1,9 @@
+#cmp{
+    width:100%;
+    border: 1px solid black;
+}
+td{
+    border: 1px solid black;
+    font-size: larger;
+    width:50%;
+}

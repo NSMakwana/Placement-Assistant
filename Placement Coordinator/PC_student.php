@@ -13,7 +13,7 @@
 
     <div id="option">
         
-        <form method="post">
+        <form name="stu_option" method="post">
         <table id="t">
         <tr id="row">
                     
@@ -30,18 +30,22 @@
                                         <option value="MSC CS">MSC CS</option>                                        
                                         <option value="PGDCA">PGDCA</option>                                        
                                         </select></center></a></td>
-                    <td id="op"><center>Report:<center></td>
+                    <td id="op"><center><label for="report">Report:</label>
+                                        <select id="report" name="report">
+                                        <option value="Individual">Individual</option>
+                                        <option value="Rubric">Rubric</option>                             
+                                        </select></center></td> 
         </tr>
         <tr id="row">
             <td></td>
             <td></td>
-            <td id="op"><a href="PC_ind.php"><center><button id="ind">Individual</button></center></a></td>
+            <td></td>
             
         </tr>
         <tr id="row">
             <td></td>
             <td></td>
-            <td id="op"><a href="PC_rub.php"><center><button id="rub">Rubric</button></center></a></td>
+            <td></td>
         </tr>
         <tr id="row">
             <td></td>
@@ -52,4 +56,21 @@
         </table>
     </div>
 </body>
+<?php
+if(isset($_POST["submit"]))
+{
+    $batch=$_POST["batch"];
+    $program=$_POST["program"];
+    $report=$_POST["report"];
+
+    if($report=="Individual")
+    {
+        header("location:PC_ind.php?b=$batch && p=$program");
+    }
+    else{
+        header("location:PC_rub.php?b=$batch && p=$program");
+    }
+}
+
+?>
 </html>

@@ -22,7 +22,7 @@
     height:30px;
     font-size:x-large;
 }
-#ind,#rub,#batch,#program,#submit{
+#batch,#program,#submit,#report{
     height:30px;
     width:100px;
     font-size: large;

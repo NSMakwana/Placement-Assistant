@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="company_details_css.css">
 </head>
 <body>
 <form>
-        <table>
-        
-            <h3>Company details: </h3>
-                
+        <table id="cmp">
+                    <tr>
+                        <td><h3>Company details: </h3></td>
+                        <td></td>
+                    </tr>                
                     <tr>
                     <td><label> Name :</label></td>
                     <td><input type="name" name="cmp_name"></td>
@@ -27,10 +29,9 @@
                     <td><label> Maximum package :</label></td>
                     <td><input type="text" name="max_package"></td>
                     </tr>
-        </table>
-
-            <h3>Details of contact person: </h3>
-        <table>
+                    <tr>
+                    <td> <h3>Details of contact person: </h3></td>
+                    </tr>
                     <tr>
                     <td><label> Name :</label></td>
                     <td><input type="name" name="per_name"></td>
@@ -45,12 +46,11 @@
                     </tr>
                     <tr>
                     <td><label> Mobile number :</label></td>
-                    <td><input type="text" name="per_num" pattern="[789][0-9]{9}"></td>
+                    <td><input type="text" name="per_num"></td>
                     </tr>
-        </table>
-
-            <h3>Details of vacancy: </h3>
-        <table>
+                    <tr>
+                    <td><h3>Details of vacancy: </h3></td>
+                    </tr>
                     <tr>
                     <td><label> Designation :</label></td>
                     <td><input type="name" name="vac_designation"></td>
@@ -72,10 +72,10 @@
                     <td><label> Mobile number : </label></td>
                     <td><input type="text" name="vac_mobilenum" pattern="[789][0-9]{9}"></td>
                     </tr>
-        </table>
-
-                <h3>Academic background: </h3>
-            <table>
+                    <tr>
+                    <td><h3>Academic background: </h3></td>
+                    </tr>
+                
                     <tr>UG :
                     <td>
                         <input type="checkbox" id="A1" name="ug1" value="B.COM">
@@ -109,10 +109,9 @@
                         <label for="B5"> Any other </label><br><br>
                     </td>
                     </tr>
-            </table>
-
-            <h3>Placement process: </h3>
-            <table>
+                    <tr>
+                     <td><h3>Placement process: </h3></td>
+                    </tr>
                     <tr>
                     <td>
                         <input type="checkbox" id="C1" name="T1" value="aptitude_test">
