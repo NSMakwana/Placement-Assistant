@@ -10,7 +10,7 @@ if(isset($_POST["submit"])) {
     if(empty($username)){
         $userError = "username is required";
     } 
-    if(!preg_match("/^[A-Za-z]$/",$username)) {
+    if(!preg_match("/^[A-Za-z_]$/",$username)) {
         $userError = "username should contain only character and underscore";
     }
 }
