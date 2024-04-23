@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = ($_POST["name"]);
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
       $nameerr = "Only letters and white space allowed";
-      echo $nameerr
+      echo $nameerr;
     }
     else
     {

@@ -3,17 +3,14 @@
     $passwordError = "";
     $username = "";
     $password = "";
-if(isset($_POST['submit'])) {
+if(isset($_POST["submit"])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
     if(empty($username)){
         $userError = "username is required";
     } 
-    else{
-        $userError = "username is not required";
-    }
-    if(!preg_match("/^[A-Za-z]_$/",$username)) {
+    if(!preg_match("/^[A-Za-z]$/",$username)) {
         $userError = "username should contain only character and underscore";
     }
 }
@@ -44,7 +41,7 @@ if(isset($_POST['submit'])) {
   <form method="post">
     <tr>
         <td><label>Username</label></td>
-        <td><input type="text" name="username" placeholder="Enter username"><span id="error"></span></td>
+        <td><input type="text" name="username" placeholder="Enter username"><span id="error"><?php echo $userError;?></span></td>
        
     </tr>
     <tr>
