@@ -17,9 +17,9 @@
 
 <?php
 
-$marks_sscerr = $tm_sscerr = $perct_sscerr = $year_sscerr = $board_sscerr = $marks_hscerr = $tm_hscerr = $perct_hscerr = $year_hscerr = $board_hscerr="";
-$marks_ssc = $tm_ssc = $perct_ssc = $year_ssc = $board_ssc = $marks_hsc = $tm_hsc = $perct_hsc = $year_hsc = $board_hsc ="";
-$marks1_ssc = $tm1_ssc = $perct1_ssc = $year1_ssc = $board1_ssc = $marks1_hsc = $tm1_hsc = $perct1_hsc = $year1_hsc = $board1_hsc ="";
+$marks_sscerr = $tm_sscerr = $perct_sscerr = $year_sscerr = $board_sscerr = $marks_hscerr = $tm_hscerr = $perct_hscerr =$stream_hsc= $year_hscerr = $board_hscerr="";
+$marks_ssc = $tm_ssc = $perct_ssc = $year_ssc = $board_ssc = $marks_hsc = $tm_hsc = $perct_hsc = $streamhsc = $year_hsc = $board_hsc ="";
+$marks1_ssc = $tm1_ssc = $perct1_ssc = $year1_ssc = $board1_ssc = $marks1_hsc = $tm1_hsc = $perct1_hsc = $stream1_hsc= $year1_hsc = $board1_hsc ="";
 
 $enumerr = $nameerr = $emailerr = $numerr = $nationerr = $gendererr = $addresserr = $doberr = "";
 $enum = $name = $num = $email = $nation = $gender = $address = $dob = "";
@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $name1=$name;
     }
   }
+  
   
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["nation"])) {
@@ -146,6 +147,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 
+  if (empty($_POST["stream_hsc"])) {
+    $stream_hscerr = "Stream is required";
+    echo $stream_hscerr;
+  } else {
+    $stream_hsc = ($_POST["stream_hsc"]);
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$stream_hsc)) {
+      $stream_hscerr = "Only letters and white space allowed";
+      echo $stream_hscerr;
+    }
+    else
+    {
+      $stream1_hsc=$stream_hsc;
+    }
+  }
 
   if (empty($_POST["marks_ssc"])) {
     $marks_sscerr = "Marks are required";
