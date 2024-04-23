@@ -28,41 +28,38 @@ if(isset($_POST['submit'])) {
     }
 
 ?>
-<?php include('server.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registration system PHP and MySQL</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  
+  <link rel="stylesheet" type="text/css" href="login_css.css">
 </head>
 <body>
-<center>
+
   <div class="header">
     <h2>Login</h2>
   </div>
   
-   <table>  
-  <form method="post" action="login.php">
+   <table id="signin">  
+  <form method="post">
     <tr>
         <td><label>Username</label></td>
-        <td><input type="text" name="username" placeholder="Enter username"></td>
-        <span style="color:red;"></span>
+        <td><input type="text" name="username" placeholder="Enter username"><span id="error"></span></td>
+       
     </tr>
     <tr>
         <td><label>Password</label></td>
-        <td><input type="password" name="password" placeholder="Enter password"></td>
-        <span style="color:red;"></span>
+        <td><input type="password" name="password" placeholder="Enter password"><span id="error"></span></td>
+       
     </tr>
     <tr>
-        <td><button type="submit" class="button" name="login">Login</button></td>
-</tr>
-<tr>
-    <p>
-        <td>Not yet a member? <a href="register.php">Register</a></td>
-    </p>
-</tr>
+        <td><input type="submit" name="login" id="login" value="Sign in"></td>
+        <td>Not registered yet? <a href="register.php">Register</a></td>
+    </tr>
+       
+        
 </table>
   </form>
-  </center>
+  
 </body>
 </html>
