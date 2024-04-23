@@ -1,6 +1,7 @@
 <?php
      session_start();
      require_once("conn.php");
+     $batch=$course="";
      
 ?>
 <html>
@@ -11,8 +12,8 @@
         <div id="details">
         <?php
             $n=1;
-            $batch=$_REQUEST["batch"];
-            $course=$_REQUEST["course"];
+            $batch=$_REQUEST["b"];
+            $course=$_REQUEST["p"];
             
                 $records_per_page = 05;
 
@@ -44,8 +45,8 @@
                 echo "</table>";
                 
                 
-                $query = "SELECT COUNT(*) total FROM people";
-                $result = mysqli_query($db, $query);
+                $query = "SELECT COUNT(*) total FROM stud_personal where course='".$course."' ";
+                $result = mysqli_query($conn, $query);
                 $row = mysqli_fetch_assoc($result);
                 $total_records = $row['total'];
                 $total_pages = ceil($total_records / $records_per_page);
@@ -58,4 +59,4 @@
         </div>
     </body>
 
-</html>q
+</html>
