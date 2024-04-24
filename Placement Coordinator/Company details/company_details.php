@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="company_details_css.css">
+    <style>
+        th{
+            text-align:left;
+        }
+        </style>
 </head>
 <body>
 <form>
@@ -75,8 +80,10 @@
                     <tr>
                     <td><h3>Academic background: </h3></td>
                     </tr>
-                
-                    <tr>UG :
+                  <tr>
+                  <th> UG :</th>
+                    </tr>
+                    <tr>
                     <td>
                         <input type="checkbox" id="A1" name="ug1" value="B.COM">
                         <label for="A1"> B.COM </label><br>
@@ -95,7 +102,10 @@
                     </td>
                     </tr>
 
-                    <tr>PG :
+                    <tr>
+                  <th> PG :</th>
+                    </tr>
+                    <tr>
                     <td>
                         <input type="checkbox" id="B1" name="pg1" value="PGDCA">
                         <label for="B1"> PGDCA </label><br>
