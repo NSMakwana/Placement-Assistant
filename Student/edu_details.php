@@ -1,3 +1,10 @@
+<?php
+require('../vendor/autoload.php');
+require_once("conn.php");
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -293,9 +300,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-require_once("conn.php");
+
 if(isset($_POST["submit"]))
 {
+  
         $query="insert into stud_edu(enum,name,email,ph_num,address,dob,gender,nationality)
         values('".$enum1."','".$name1."','".$email1."','".$num1."','".$address."','".$dob."','".$gender1."','".$nation1."')";
         mysqli_query($conn,$query) or die("something wrong");
@@ -303,6 +311,74 @@ if(isset($_POST["submit"]))
         $query1="insert into stud_edu(enum,marks_ssc,tm_ssc,pert_ssc,year_ssc,board_ssc,marks_hsc,tm_hsc,pert_hsc,stream_hsc,year_hsc,board_hsc,marks_bachelors,tm_bachelors,pert_bachelors,deg_bachelor,uni_bachelor,year_bachelors,marks_master,tm_master,pert_master,deg_master,uni_master,year_master,l_entry,drops)
         values('".$enum1."','".$marks1_ssc."','".$tm1_ssc."','".$perct1_ssc."','".$year1_ssc."','".$board1_ssc."','".$marks1_hsc."','".$tm1_hsc."','".$perct1_hsc."','".$year1_hsc."','".$board1_hsc."')";
         mysqli_query($conn,$query1) or die("something wrong");
+}
+if(isset($_POST['save_excel_data']))
+{
+    $fileName = $_FILES['import_file']['name'];
+    $file_ext = pathinfo($fileName, PATHINFO_EXTENSION);
+
+    $allowed_ext = ['xls','csv','xlsx'];
+
+    if(in_array($file_ext, $allowed_ext))
+    {
+        $inputFileNamePath = $_FILES['import_file']['tmp_name'];
+        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileNamePath);
+        $data = $spreadsheet->getActiveSheet()->toArray();
+
+        $count = "0";
+        foreach($data as $row)
+        {
+            if($count > 0)
+            {
+              $enum1 = $row['0'];              
+              $name1 = $row['1'];
+              $course= $row['2'];
+              $num1 = $row['3'];
+              $email1 = $row['4'];
+              $address = $row['5'];
+              $dob =  $row['6'];
+              $marks1_ssc = $row['7'];
+              $tm1_ssc = $row['8'];
+              $perct1_ssc = $row['9'];
+              $year1_ssc = $row['10'];
+              $board1_ssc = $row['11'];
+              $marks1_hsc = $row['12'];
+              $tm1_hsc = $row['13'];
+              $perct1_hsc = $row['14'];
+              $stream1_hsc=$row['15'];
+              $board1_hsc =$row['16'];
+              $year1_hsc = $row['17'];
+               
+
+                $studentQuery = "INSERT INTO students (fullname,email,phone,course) VALUES ('$fullname','$email','$phone','$course')";
+                $result = mysqli_query($con, $studentQuery);
+                $msg = true;
+            }
+            else
+            {
+                $count = "1";
+            }
+        }
+
+        if(isset($msg))
+        {
+            $_SESSION['message'] = "Successfully Imported";
+            header('Location: index.php');
+            exit(0);
+        }
+        else
+        {
+            $_SESSION['message'] = "Not Imported";
+            header('Location: index.php');
+            exit(0);
+        }
+    }
+    else
+    {
+        $_SESSION['message'] = "Invalid File";
+        header('Location: index.php');
+        exit(0);
+    }
 }
 
 ?>
