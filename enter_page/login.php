@@ -1,12 +1,4 @@
 
-<?php
-//if(isset($_POST["user_name"]) && isset($_POST["password"]) && isset($_POST["email"])) 
-//{ 
-// $file = fopen("testw.txt","a"); 
-// fwrite($file,"\n".$_POST["name"].",".$_POST["password"].",".$_POST["email"]); 
-// fclose($file); 
-//}
-?>
 <?php 
         require_once("connection.php");
 
