@@ -16,10 +16,16 @@
   
     
 
+<<<<<<< Updated upstream
     <tr>
         <td><input type="submit" name="login" id="login" value="Sign in"></td>
         <td>Not registered yet? <a href="sign_in.php">sign_in</a></td>
     </tr>
+=======
+    <input type = "submit" name = "submit" value = "submit"><br><br>
+
+    <p class="message"> Already have an account? <a href="login.php">Login </a></p> 
+>>>>>>> Stashed changes
     </form>
 
 <?php
@@ -85,6 +91,7 @@ if(isset($_POST["submit"]))
 }
 
 ?>
+
 
 
 </body>
