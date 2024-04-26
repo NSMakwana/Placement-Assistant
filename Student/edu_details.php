@@ -448,7 +448,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if (empty($_POST["tm_master"])) {
-    $tm_,mastererr = "Total Marks are required";
+    $tm_mastererr = "Total Marks are required";
     echo $tm_mastererr;
   } else {
     $tm_master = ($_POST["tm_master"]);
@@ -492,7 +492,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-require_once("connection.php");
+// require_once("connection.php");
 if(isset($_POST["submit"]))
 {
         $query="insert into stud_edu(enum,name,email,ph_num,address,dob,gender,nationality)
@@ -500,16 +500,16 @@ if(isset($_POST["submit"]))
         mysqli_query($conn,$query) or die("something wrong");
 
         $query1="insert into stud_edu(enum,marks_ssc,tm_ssc,pert_ssc,year_ssc,board_ssc,marks_hsc,tm_hsc,pert_hsc,stream_hsc,year_hsc,board_hsc,marks_bachelors,tm_bachelors,pert_bachelors,deg_bachelor,uni_bachelor,year_bachelors,marks_master,tm_master,pert_master,deg_master,uni_master,year_master,l_entry,drops)
-        values('".$enum1."','".$marks1_ssc."','".$tm1_ssc."','".$perct1_ssc."','".$year1_ssc."','".$board1_ssc."','".$marks1_hsc."','".$tm1_hsc."','".$perct1_hsc."','".$stream1_hsc."','".$board1_hsc."','".$year1_hsc."','".$marks1_bachelor."','".$tm1_bachelor."','".$perct1_bachelor."','".$deg1_bachelor."','".$uni1_bachelor."','".$year1_bachelor."','".$marks1_master."','".$tm1_master."','".$perct1_master."','".$deg1_master."','".$uni1_master."','".$year1_master."','".$l_entry."','".$drops."')";
+        values('".$enum1."','".$marks1_ssc."','".$tm1_ssc."','".$perct1_ssc."','".$year1_ssc."','".$board1_ssc."','".$marks1_hsc."','".$tm1_hsc."','".$perct1_hsc."','".$stream1_hsc."','".$board1_hsc."','".$year1_hsc."','".$marks1_bachelor."','".$tm1_bachelor."','".$perct1_bachelor."','".$deg1_bachelor."','".str_replace("'","\'",$uni1_bachelor)."','".$year1_bachelor."','".$marks1_master."','".$tm1_master."','".$perct1_master."','".$deg1_master."','".str_replace("'","\'",$uni1_master)."','".$year1_master."','".$l_entry."','".$drops."')";
         mysqli_query($conn,$query1) or die("something wrong");
 }
 
 ?>
 
 
-    <form name="form1" method="post" >
-      <table>
-      <tr>
+    <form name="form1" enctype="multipart/form-data" method="post" >
+   <table>
+         <tr>
         <td><h3>Personal Details:</h3></td>
       </tr>
 
@@ -657,7 +657,7 @@ if(isset($_POST["submit"]))
               <h3>MASTER's DEGREE DETAILS(aggregate of 3 sem):</h3>
             </td>
           </tr>
-          <!-- <h3>MASTER's DEGREE DETAILS(aggregate of 3 sem):</h3> -->
+           <h3>MASTER's DEGREE DETAILS(aggregate of 3 sem):</h3>
 
           <tr>
             <td>Marks obtained in master's:</td>
@@ -715,10 +715,93 @@ if(isset($_POST["submit"]))
             <td>Remarks:</td>
             <td><textarea></textarea></td>
           </tr>
-      </table>
+
+          <tr>
+            <td></td>
+            <td><input type="file" name="file_import"></td>
+          </tr>       </table> 
 
       <br><input type="SUBMIT" name="SUBMIT" value="SUBMIT">
+      <br><input type="SUBMIT" name="save_excel_data" value="SUBMIT">
 
     </form>
 </body>
+<?php
+
+if(isset($_POST['save_excel_data']))
+{
+    $fileName = $_FILES["file_import"]['name'];
+    $file_ext = pathinfo($fileName, PATHINFO_EXTENSION);
+
+    $allowed_ext = ['xls','csv','xlsx'];
+
+    if(in_array($file_ext, $allowed_ext))
+    {
+        $inputFileNamePath = $_FILES["file_import"]['tmp_name'];
+        $spreadsheet = PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileNamePath);
+        $data = $spreadsheet->getActiveSheet()->toArray();
+
+        $count = "0";
+        foreach($data as $row)
+        {
+            // if($count > 0)
+            // {
+                $enum1 = $row['0'];
+                $name1 =$row['1'];
+                $course =$row['2'];
+                $num1 = $row['3'];
+                $email1 =$row['4']; 
+                $address= $row['5'];
+                $dob=$row['6'];
+                $marks1_ssc = $row['7'];
+                $tm1_ssc = $row['8'];
+                $perct1_ssc = $row['9'];
+                $year1_ssc = $row['10'];
+                $board1_ssc = $row['11'];
+                $marks1_hsc = $row['12'];
+                $tm1_hsc = $row['13'];
+                $perct1_hsc = $row['14'];
+                $stream1_hsc= $row['15'];
+                $board1_hsc = $row['16'];
+                $year1_hsc = $row['17'];
+                $marks1_bachelor = $row['18'];
+                $tm1_bachelor = $row['19'];
+                $perct1_bachelor = $row['20'];
+                $deg1_bachelor = $row['21'];
+                $uni1_bachelor = $row['22'];
+                $year1_bachelor = $row['23'];
+                $marks1_master = $row['24'];
+                $tm1_master = $row['25'];
+                $perct1_master = $row['26'];
+                $deg1_master = $row['27'];
+                $uni1_master =$row['28']; 
+                $year1_master =$row['29'];
+                $l_entry=$row['30'];
+                $drops=$row['31'];
+                $remarks=$row['32'];
+
+
+                $query="insert into stud_personal(enum,course,name,email,ph_num,address,dob)
+                values('".$enum1."','".$course."','".$name1."','".$email1."','".$num1."','".$address."','".$dob."')";
+                mysqli_query($conn,$query) or die("something wrong");
+        
+                echo $query."<br><br>";
+
+              
+                $query1="insert into stud_edu(enum,marks_ssc,tm_ssc,perct_ssc,year_ssc,board_ssc,marks_hsc,tm_hsc,perct_hsc,stream_hsc,board_hsc,year_hsc,marks_bachelor,tm_bachelor,perct_bachelor,deg_bachelor,uni_bachelor,year_bachelor,marks_master,tm_master,perct_master,deg_master,uni_master,year_master,l_entry,drops,remarks)
+                values('".$enum1."','".$marks1_ssc."','".$tm1_ssc."','".$perct1_ssc."','".$year1_ssc."','".$board1_ssc."','".$marks1_hsc."','".$tm1_hsc."','".$perct1_hsc."','".$stream1_hsc."','".$board1_hsc."','".$year1_hsc."','".$marks1_bachelor."','".$tm1_bachelor."','".$perct1_bachelor."','".$deg1_bachelor."','".$uni1_bachelor."','".$year1_bachelor."','".$marks1_master."','".$tm1_master."','".$perct1_master."','".$deg1_master."','".$uni1_master."/','".$year1_master."','".$l_entry."','".$drops."','".$remarks."')";
+                echo $query1;
+                
+                mysqli_query($conn,$query1) or die("something wrong");
+        //     }
+        //     else
+        //     {
+        //         $count = "1";
+        //     }
+        }
+
+       }
+}
+
+?>
 </html>

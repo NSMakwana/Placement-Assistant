@@ -46,6 +46,7 @@
     margin-top:0%;
     height:100%;
     background-color: rgb(2, 153, 153);   
+    position: fixed;
 }
 #f{
     padding-top: 10px;
@@ -57,4 +58,27 @@
     height:100%;
     width:100%;
     position: fixed;
+    /* scrollbar-width: 2px; */
+}
+#d{
+    border:2px solid black;
+}
+#sr{
+    width: 50px;
+    text-align:center;
+    border:2px solid black;
+    font-size: larger;
+}
+#name{
+width:770px;
+text-align:left;
+border:2px solid black;
+font-size: larger;
+
+}
+#marks{
+    width:50px;
+    text-align:center;
+    border:2px solid black;
+    font-size: larger;
 }

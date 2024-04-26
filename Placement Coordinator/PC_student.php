@@ -69,7 +69,7 @@ if(isset($_POST["submit"]))
 
     if($report=="Individual")
     {
-        header("location:PC_ind.php?b=$batch && p=$program");
+        header("location:PC_ind.php?b=$batch&p=$program");
     }
     else{
         header("location:PC_rub.php?b=$batch && p=$program");
