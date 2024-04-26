@@ -5,12 +5,10 @@
 <body>
     <table id="signup">
     <form method = "post">
-    NAME :
-    <br><input type = "text" name = "user_name"><br>
+    USERNAME :
+    <br><input type = "text" name = "username"><br>
     
-    EMAIL ID:
-    <br><input type = "text" name = "email_id"><br>
-  
+   
     PASSWORD:
     <br><input type = "text" name = "password"><br>
   
@@ -18,7 +16,7 @@
 
     <tr>
         <td><input type="submit" name="login" id="login" value="Sign in"></td>
-        <td>Not registered yet? <a href="sign-in.php">sign-in</a></td>
+        <td>Not registered yet? <a href="signup.php">signup</a></td>
     </tr>
     </form>
 
@@ -32,7 +30,7 @@
         $email_id = $_POST["email_id"];
         $password = $_POST["password"];
 
-        $query = "INSERT INTO sign_up(user_name,email_id,password)  VALUES('".$user_name."','".$email_id."','".$password."')";
+        $query = "INSERT INTO sign_in(username,password)  VALUES('".$username."','".$password."')";
         mysqli_query($conn,$query);
 
     }
