@@ -60,7 +60,7 @@ if(isset($_POST["submit"]))
                 $emailErr = "invalid email format";
             }
         }
-        if(strlen($password))<=8{
+        if(strlen($password)) <= 8{
             echo "password must be 8 characters";
         }
     }
