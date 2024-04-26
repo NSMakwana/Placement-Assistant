@@ -6,10 +6,10 @@
     <table id="signup">
     <form method = "post">
     USERNAME :
-    <br><input type = "text" name = "user_name"><br>
+    <br><input type = "text" name = "username"><br>
     
     EMAIL ID:
-    <br><input type = "text" name = "email_id"><br>
+    <br><input type = "text" name = "emailid"><br>
   
     PASSWORD:
     <br><input type = "text" name = "password"><br>
@@ -26,11 +26,11 @@
 
 if(isset($_POST["submit"]))
 {
-    $user_name = $_POST["USERNAME"];
-    $email_id = $_POST["emailid"];
+    $username = $_POST["username"];
+    $emailid = $_POST["emailid"];
     $password = $_POST["password"];
 
-    $query = "INSERT INTO sign_up(user_name,email_id,password)  VALUES('".$user_name."','".$email_id."','".$password."')";
+    $query = "INSERT INTO sign_up(username,emailid,password)  VALUES('".$username."','".$emailid."','".$password."')";
     mysqli_query($conn,$query);
     if(strlen($username) <=8)
     {
@@ -39,28 +39,32 @@ if(isset($_POST["submit"]))
 
     require_once("connection.php");
     $nameErr = $emailErr = $passErr = "";
-    $USERNAME = $email = $password = "";
+    $username = $emailid = $password = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if(empty($_POST["USERNAME"])){
-            $nameErr = "USERNAME is required";
+      
+        if(empty($_POST["username"])){
+            $nameErr = "username is required";
         }else{
-            $name = ($_POST["USERNAME"]);
+            $name = ($_POST["username"]);
             if (!preg_match("/^[A-a-z_']*$/",$name)){
                 $nameErr = "only characters and underscore allowed";
             }
         }
-        if(empty($_POST["EMAIl"])){
-            $emailErr = "EMAIL is required";
+        if(empty($_POST["emailid"])){
+            $emailErr = "email is required";
         }else{
-            $EMAIL = ($_POST["EMAIL"]);
+            $emailid = ($_POST["emailid"]);
             $pattern = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-z]{2-4}$/";
-            if(!preg_match($pattern, $EMAIL))
+            if(!preg_match($pattern, $emailid))
             {
                 $emailErr = "invalid email format";
             }
         }
+        if(strlen($password))<=8{
+            echo "password must be 8 characters";
+        }
     }
-    $query = mysqli_query($conn, "SELECT username,password * FROM login WHERE username='$user_name' AND password='$pass_word'");
+    $query = mysqli_query($conn, "SELECT username,password * FROM sign_up WHERE username='$username',emailid='$emailid' AND password='$password'");
 
     $result = mysqli_query($conn, $query);
 
