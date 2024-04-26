@@ -8,7 +8,7 @@ if(isset($_POST["submit"])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO 'user'(username,password)
+    $sql = "INSERT INTO 'sign-up'(username,password)
     values('$username','$password')";
     if(mysqli_query($conn,$sql)){
         echo "<script>alert('new record inserted')</script>";
