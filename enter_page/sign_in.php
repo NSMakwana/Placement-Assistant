@@ -32,29 +32,16 @@
         $password = $_POST["password"];
 
         $query = "INSERT INTO sign_in(username,password)  VALUES('".$username."','".$password."')
-        WHERE username='$username' ";
+        WHERE username='$username'";
+        if(isset($_POST['submit'])){
+            echo 'User found';
+        } else{
+            echo 'user not found';
+        }
         mysqli_query($conn,$query);
-        $sql = "SELECT password FROM users WHERE password='$password'";
-        $result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-   
-    $row = $result->fetch_assoc();
-    $hashed_password = $row['password'];
-    if (password_verify($password, $hashed_password)) {
-        
-        echo "Login successful!";
-       
-    } else {
-       
-        echo "Invalid username or password.";
-    }
-} else {
-        echo "User not found.";
-    }
+        $query = "SELECT * FROM sign_in(username,password)  VALUES('".$username."','".$password."')
+        WHERE username='$username'";
 }
-
-$conn->close();
 ?>
 </body>
 </html>
