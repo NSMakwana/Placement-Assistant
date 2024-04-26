@@ -1,4 +1,4 @@
-<html lang="en">
+<html >
 <head>
     
 </head>
@@ -15,7 +15,7 @@
 
     <input type = "submit" name = "submit" value = "submit"><br><br>
 
-    <p class="message"> Already have an account? <a href="login.php">Login </a></p> 
+    <p class="message"> Already have an account? <a href="login.php">login to account</a></p> 
     </form>
 
 <?php
@@ -32,7 +32,6 @@
         mysqli_query($conn,$query);
 
     }
-
 ?>
 
 
