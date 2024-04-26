@@ -293,7 +293,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-require_once("connection.php");
+require_once("conn.php");
 if(isset($_POST["submit"]))
 {
         $query="insert into stud_edu(enum,name,email,ph_num,address,dob,gender,nationality)
