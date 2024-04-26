@@ -1,92 +1,44 @@
-<?php 
-include('login_connection.php');
-    $userError = "";
-    $passwordError = "";
-    $emailError = "";
-    $username = "";
-    $password = "";
-    $email = "";
-if(isset($_POST["submit"])) {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <table id="signup">
+    <form method = "post">
+    NAME :
+    <br><input type = "text" name = "user_name"><br>
+    
+    EMAIL ID:
+    <br><input type = "text" name = "email_id"><br>
+  
+    PASSWORD:
+    <br><input type = "text" name = "password"><br>
+  
+    
 
-    $sql = "INSERT INTO 'sign-up'(username,password,email)
-    values('$username','$password','$email')";
-    if(mysqli_query($conn,$sql)){
-        echo "<script>alert('new record inserted')</script>";
-    }else{
-        echo "error:".mysqli_error($conn);
-    }
-    mysqli_close($conn);
+    <tr>
+        <td><input type="submit" name="login" id="login" value="Sign in"></td>
+        <td>Not registered yet? <a href="sign-in.php">sign-in</a></td>
+    </tr>
+    </form>
 
-    if(empty($username)){
-        $userError = "username is required";
-    } 
-    if(!preg_match("/^[A-Za-z_]$/",$username)) {
-        $userError = "username should contain only character and underscore";
-    }
-    if(empty($email)){
-        $emailError = "email is required";
-    } 
-    if(!preg_match("/^[A-Za-z@]$/",$email)) {
-        $emailError = "email should contain only character and attherat";
-    }
-}
-    if(empty($password)){
-       $passwordError = "password is required"; 
-    } 
-    else{
-       $passwordError = "password is not required";
-    }
-    if(!preg_match("/^@_$/",$password)){
-        $passwordError = "password should contain characters";
+<?php
+
+    require_once("connection.php");
+
+    if(isset($_POST["submit"]))
+    {
+        $user_name = $_POST["user_name"];
+        $email_id = $_POST["email_id"];
+        $password = $_POST["password"];
+
+        $query = "INSERT INTO sign_up(user_name,email_id,password)  VALUES('".$user_name."','".$email_id."','".$password."')";
+        mysqli_query($conn,$query);
+
     }
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  
-  <link rel="stylesheet" type="text/css" href="login_css.css">
-</head>
-<body>
 
-  <div class="header">
-    <h2>Login</h2>
-  </div>
-  
-   <table id="signin">  
-  <form method="post" action="login.php">
-  <tr>
-        <td><label>id</label></td>
-        <td><input type="text" name="id" placeholder="Enter username"><span id="error"><?php echo $userError;?></span></td>
-       
-    </tr>
-    <tr>
-        <td><label>username</label></td>
-        <td><input type="text" name="username" placeholder="Enter username"><span id="error"><?php echo $userError;?></span></td>
-       
-    </tr>
-    <tr>
-        <td><label>email</label></td>
-        <td><input type="text" name="email" placeholder="Enter username"><span id="error"><?php echo $userError;?></span></td>
-       
-    </tr>
-    <tr>
-        <td><label>Password</label></td>
-        <td><input type="password" name="password" placeholder="Enter password"><span id="error"></span></td>
-       
-    </tr>
-    
-    <tr>
-        <td><input type="submit" name="login" id="login" value="Sign in"></td>
-        <td>Not registered yet? <a href="register.php">Register</a></td>
-    </tr>
-       
-        
-</table>
-  </form>
-  
+
 </body>
 </html>
