@@ -9,10 +9,10 @@
     <br><input type = "text" name = "username"><br>
     
     EMAIL ID:
-    <br><input type = "text" name = "emailid"><br>
+    <br><input type = "email" name = "emailid"><br>
   
     PASSWORD:
-    <br><input type = "text" name = "password"><br>
+    <br><input type = "password" name = "password"><br>
   
     
 
