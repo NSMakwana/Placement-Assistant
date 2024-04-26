@@ -1,4 +1,3 @@
-
 <?php 
         require_once("connection.php");
 
@@ -20,8 +19,8 @@ if(isset($_POST["submit"]))
     }
     if($flag==0)
     {
-        echo"invalid data";
         header("Location:login.php");
+        echo"invalid data";
     }
     else
     {
@@ -48,14 +47,29 @@ if(isset($_POST["submit"]))
  
 ?> 
 <html> 
+    <head>
+    <style>
+
+div {
+  background-color: bisque;
+  width: 300px;
+  border: 15px solid darkcyan;
+  padding: 60px;
+  margin: auto;
+  margin-top: 150px;
+}
+    </style>
+    </head>
 <body> 
 
+<div>
+        <h3>LOGIN HERE: </h3>
 <form method="post"> 
-Email ID : <input type="text" name="email_id"><br> 
-Password : <input type="password" name="password"><br>
+EMAIL ID :<br> <input type="text" name="email_id"><br> 
+PASSWORD : <br><input type="password" name="password"><br>
 <input type="submit" name="submit" Value="submit"> 
 <p class="message"> Not registered ?<a href="signup.php">Sign up</a></p> 
 </form> 
- 
+</div>
 </body> 
 </html>
