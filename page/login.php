@@ -2,14 +2,17 @@
 include('login_connection.php');
     $userError = "";
     $passwordError = "";
+    $emailError = "";
     $username = "";
     $password = "";
+    $email = "";
 if(isset($_POST["submit"])) {
     $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO 'sign-up'(username,password)
-    values('$username','$password')";
+    $sql = "INSERT INTO 'sign-up'(username,password,email)
+    values('$username','$password','$email')";
     if(mysqli_query($conn,$sql)){
         echo "<script>alert('new record inserted')</script>";
     }else{
@@ -22,6 +25,12 @@ if(isset($_POST["submit"])) {
     } 
     if(!preg_match("/^[A-Za-z_]$/",$username)) {
         $userError = "username should contain only character and underscore";
+    }
+    if(empty($email)){
+        $emailError = "email is required";
+    } 
+    if(!preg_match("/^[A-Za-z@]$/",$email)) {
+        $emailError = "email should contain only character and attherat";
     }
 }
     if(empty($password)){
@@ -69,11 +78,7 @@ if(isset($_POST["submit"])) {
         <td><input type="password" name="password" placeholder="Enter password"><span id="error"></span></td>
        
     </tr>
-    <tr>
-        <td><label>timestamp</label></td>
-        <td><input type="text" name="timestamp" placeholder="Enter username"><span id="error"><?php echo $userError;?></span></td>
-       
-    </tr>
+    
     <tr>
         <td><input type="submit" name="login" id="login" value="Sign in"></td>
         <td>Not registered yet? <a href="register.php">Register</a></td>
