@@ -9,9 +9,9 @@ if(isset($_POST["submit"]))
     $res=mysqli_query($conn,$query);
 
 
-    if(isset($array[1])) 
+    if(isset($email_id)) 
     { 
-        if($array[1]==$_POST["email_id"])
+        if($email_id=$_POST["email_id"])
             { 
                 $f=TRUE; 
                 if($f) 
