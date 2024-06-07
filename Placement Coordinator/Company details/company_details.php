@@ -5,63 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="company_details_css.css">
+    <style>
+        th{
+            text-align:left;
+        }
+        </style>
 </head>
 <body>
 <form>
         <table id="cmp">
                     <tr>
-                        <td id="op"><h3>Company details: </h3></td>
-                        <td id="op"></td>
+                        <td><h3>Company details: </h3></td>
+                        <td></td>
                     </tr>                
                     <tr>
-                    <td id="op"><label> Name :</label></td>
-                    <td id="op"><input type="name" name="cmp_name"></td>
+                    <td><label> Name :</label></td>
+                    <td><input type="name" name="cmp_name"></td>
                     </tr>
                     <tr>
-                    <td id="op"><label> Address :</label></td>
-                    <td id="op"><input type="text" name="cmp_address"></td>
+                    <td><label> Address :</label></td>
+                    <td><input type="text" name="cmp_address"></td>
                     </tr>
                     <tr>
-                    <td id="op"><label> Minimum package :</label></td>
-                    <td id="op"><input type="text" name="min_package"></td>
+                    <td><label> Minimum package :</label></td>
+                    <td><input type="text" name="min_package"></td>
                     </tr>
                     <tr>
-                    <td id="op"><label> Maximum package :</label></td>
-                    <td id="op"><input type="text" name="max_package"></td>
+                    <td><label> Maximum package :</label></td>
+                    <td><input type="text" name="max_package"></td>
                     </tr>
                     <tr>
-                    <td id="op"> <h3>Details of contact person: </h3></td>
+                    <td> <h3>Details of contact person: </h3></td>
                     </tr>
                     <tr>
-                    <td id="op"><label> Name :</label></td>
-                    <td id="op"><input type="name" name="per_name"></td>
+                    <td><label> Name :</label></td>
+                    <td><input type="name" name="per_name"></td>
                     </tr>
                     <tr>
-                    <td id="op"><label> Designation :</label></td>
-                    <td id="op"><input type="text" name="per_designation"></td>
+                    <td><label> Designation :</label></td>
+                    <td><input type="text" name="per_designation"></td>
                     </tr>
                     <tr>
-                    <td id="op"><label>Email address :</label></td>
-                    <td id="op"><input type="email" name="per_email"></td>
+                    <td><label>Email address :</label></td>
+                    <td><input type="email" name="per_email"></td>
                     </tr>
                     <tr>
-                    <td id="op"><label> Mobile number :</label></td>
-                    <td id="op"><input type="text" name="per_num"></td>
+                    <td><label> Mobile number :</label></td>
+                    <td><input type="text" name="per_num"></td>
                     </tr>
                     <tr>
-                    <td id="op"><h3>Details of vacancy: </h3></td>
+                    <td><h3>Details of vacancy: </h3></td>
                     </tr>
                     <tr>
-                    <td id="op"><label> Designation :</label></td>
-                    <td id="op"><input type="name" name="vac_designation"></td>
+                    <td><label> Designation :</label></td>
+                    <td><input type="name" name="vac_designation"></td>
                     </tr>
                     <tr>
-                    <td id="op"><label> Location :</label></td>
-                    <td id="op"><input type="text" name="vac_location"></td>
+                    <td><label> Location :</label></td>
+                    <td><input type="text" name="vac_location"></td>
                     </tr>
                     <tr>
-                    <td id="op"><label for ="experience"> Experience required: </label></td>
-                    <td id="op"><select name="experience" id="experience">
+                    <td><label for ="experience"> Experience required: </label></td>
+                    <td><select name="experience" id="experience">
                                 <option value="no experience">no experience</option>
                                 <option value="1 year">1 year</option>
                                 <option value="2 year">2 year</option>
@@ -69,15 +74,17 @@
                         </select>                    
                     </tr>
                     <tr>
-                    <td id="op"><label> Mobile number : </label></td>
-                    <td id="op"><input type="text" name="vac_mobilenum" pattern="[789][0-9]{9}"></td>
+                    <td><label> Mobile number : </label></td>
+                    <td><input type="text" name="vac_mobilenum" pattern="[789][0-9]{9}"></td>
                     </tr>
                     <tr>
-                    <td id="op"><h3>Academic background: </h3></td>
+                    <td><h3>Academic background: </h3></td>
                     </tr>
-                
-                    <tr>UG :
-                    <td id="op">
+                  <tr>
+                  <th> UG :</th>
+                    </tr>
+                    <tr>
+                    <td>
                         <input type="checkbox" id="A1" name="ug1" value="B.COM">
                         <label for="A1"> B.COM </label><br>
                         <input type="checkbox" id="A2" name="ug2" value="BSC">
@@ -95,8 +102,11 @@
                     </td>
                     </tr>
 
-                    <tr>PG :
-                    <td id="op">
+                    <tr>
+                  <th> PG :</th>
+                    </tr>
+                    <tr>
+                    <td>
                         <input type="checkbox" id="B1" name="pg1" value="PGDCA">
                         <label for="B1"> PGDCA </label><br>
                         <input type="checkbox" id="B2" name="pg2" value="MCA">
@@ -110,10 +120,10 @@
                     </td>
                     </tr>
                     <tr>
-                     <td id="op"><h3>Placement process: </h3></td>
+                     <td><h3>Placement process: </h3></td>
                     </tr>
                     <tr>
-                    <td id="op">
+                    <td>
                         <input type="checkbox" id="C1" name="T1" value="aptitude_test">
                         <label for="C1"> Aptitude Test  </label><br>
                         <input type="checkbox" id="C2" name="T2" value="Tech_round">
