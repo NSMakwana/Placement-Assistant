@@ -1,5 +1,5 @@
 <?php 
-        require_once("connection.php");
+        require_once("conn.php");
 
 if(isset($_POST["submit"])) 
 { 
@@ -50,19 +50,20 @@ if(isset($_POST["submit"]))
     <head>
     <style>
 
-div {
+#d{
   background-color: bisque;
   width: 300px;
   border: 15px solid darkcyan;
   padding: 60px;
   margin: auto;
+  text-align:center;
   margin-top: 150px;
 }
     </style>
     </head>
 <body> 
 
-<div>
+<div id="d">
         <h3>LOGIN HERE: </h3>
 <form method="post"> 
 EMAIL ID :<br> <input type="text" name="email_id"><br> 

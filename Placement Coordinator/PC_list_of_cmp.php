@@ -5,21 +5,18 @@
      
 ?>
 <html>
+
     <head>
-            <link rel="stylesheet" href="PC_ind_css.css">
+        <link rel="stylesheet" href="PC_ind_css.css">
     </head>
     <body>
     <div id="title">
-           <center>List of Student</center>
+               <center>List Of Companies</center>
         </div>
         <div id="data">    
-           <?php
-         
-            
-                $n=1;
-            
-            $batch=$_REQUEST["b"];
-            $course=$_REQUEST["p"];
+           <?php           
+                $n=1;            
+                $cmp=$_REQUEST["c"];
             
                 $records_per_page = 9;
 
@@ -60,12 +57,11 @@
                 
                 echo "<div id='pg'>";
                 for ($i = 1; $i <= $total_pages; $i++) {
-                    echo "<a href='?page=$i&b=$batch&p=$course'>$i</a>";
+                    echo "<a href='?page=$i&$c=cmp'>$i</a>";
                 }  
             echo "</div>";    
         ?>
         </div>
-        
     </body>
 
 </html>

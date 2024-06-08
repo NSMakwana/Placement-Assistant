@@ -33,7 +33,7 @@ div {
 </div>
 <?php
 
-    require_once("connection.php");
+    require_once("conn.php");
 
     if(isset($_POST["submit"]))
     {
