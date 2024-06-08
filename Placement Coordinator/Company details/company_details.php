@@ -4,14 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <link rel="stylesheet" href="company_details_css.css">
-    <style>
-        th{
-            text-align:left;
+    <script>
+        function addDesignation() {
+           
+            var designationContainer = document.getElementById('designation');
+            var designationIndex = designationContainer.children.length;
+
+            var designationDiv = document.createElement('div');
+            designationDiv.className = 'designation';
+            designationDiv.innerHTML = `
+                <h4>Designation ${designationIndex + 1}</h4>
+                <label for="designation_${designationIndex}">Designation:</label>
+                <input type="text" id="designation_${designationIndex}" name="designations[${designationIndex}][name]">
+                <label for="package_${designationIndex}_${packageIndex}">Package Details:</label>`
+                // <input type="text" id="package_${designationIndex}_${packageIndex}" name="designations[${designationIndex}][packages][${packageIndex}][details]">
+                // <label for="experience_${designationIndex}_${experienceIndex}">Experience Details:</label>
+                // <input type="text" id="experience_${designationIndex}_${experienceIndex}" name="designations[${designationIndex}][experiences][${experienceIndex}][details]" required>
+                // <label for="qualification_${designationIndex}_${qualificationIndex}">Qualification Details:</label>
+                // <input type="checkbox" id="A1" name="ug1" value="B.COM">
+                //         <label for="A1"> B.COM </label><br>
+                //         <input type="checkbox" id="A2" name="ug2" value="BSC">
+                //         <label for="A2"> BSC </label><br>
+                //         <input type="checkbox" id="A3" name="ug3" value="BBA">
+                //         <label for="A3"> BBA </label><br>
+                //         <input type="checkbox" id="A4" name="ug4" value="BCA">
+                //         <label for="A4"> BCA </label><br>
+                //         <input type="checkbox" id="A5" name="ug5" value="BE">
+                //         <label for="A5"> BE </label><br>
+                //         <input type="checkbox" id="A6" name="ug6" value="BTECH">
+                //         <label for="A6"> BTECH </label><br>
+                //         <input type="checkbox" id="A7" name="ug7" value="Any other">
+                //         <label for="A7"> Any other </label><br>
+            ;
+            designationContainer.appendChild(designationDiv);
         }
-        </style>
+    </script>
 </head>
 <body>
+    <?php
+    
+    
+    ?>
 <form>
         <table id="cmp">
                     <tr>
@@ -23,8 +58,32 @@
                     <td><input type="name" name="cmp_name"></td>
                     </tr>
                     <tr>
-                    <td><label> Address :</label></td>
-                    <td><input type="text" name="cmp_address"></td>
+                    <td><label> Block number  :</label></td>
+                    <td><input type="text" name="block_num"></td>
+                    </tr>
+                    <tr>
+                    <td><label> Building name :</label></td>
+                    <td><input type="text" name="building_name"></td>
+                    </tr>
+                    <tr>
+                    <td><label> Area :</label></td>
+                    <td><input type="text" name="area"></td>
+                    </tr>
+                    <tr>
+                    <td><label> Landmark :</label></td>
+                    <td><input type="text" name="landmark"></td>
+                    </tr>
+                    <tr>
+                    <td><label> Pincode :</label></td>
+                    <td><input type="text" name="pincode"></td>
+                    </tr>
+                    <tr>
+                    <td><label> City :</label></td>
+                    <td><input type="text" name="city"></td>
+                    </tr>
+                    <tr>
+                    <td><label> State :</label></td>
+                    <td><input type="text" name="state"></td>
                     </tr>
                     <tr>
                     <td><label> Minimum package :</label></td>
@@ -58,9 +117,14 @@
                     </tr>
                     <tr>
                     <td><label> Designation :</label></td>
-                    <td><input type="name" name="vac_designation"></td>
-                    </tr>
-                    <tr>
+                    <td>
+                    <div id="designation"></div>
+                    <button type="button" onclick="addDesignation()">Add Designation</button>
+                    <!-- <td><input type="name" name="vac_designation"></td> -->
+    </td>    
+                </tr>
+
+                    <!-- <tr>
                     <td><label> Location :</label></td>
                     <td><input type="text" name="vac_location"></td>
                     </tr>
@@ -85,20 +149,7 @@
                     </tr>
                     <tr>
                     <td>
-                        <input type="checkbox" id="A1" name="ug1" value="B.COM">
-                        <label for="A1"> B.COM </label><br>
-                        <input type="checkbox" id="A2" name="ug2" value="BSC">
-                        <label for="A2"> BSC </label><br>
-                        <input type="checkbox" id="A3" name="ug3" value="BBA">
-                        <label for="A3"> BBA </label><br>
-                        <input type="checkbox" id="A4" name="ug4" value="BCA">
-                        <label for="A4"> BCA </label><br>
-                        <input type="checkbox" id="A5" name="ug5" value="BE">
-                        <label for="A5"> BE </label><br>
-                        <input type="checkbox" id="A6" name="ug6" value="BTECH">
-                        <label for="A6"> BTECH </label><br>
-                        <input type="checkbox" id="A7" name="ug7" value="Any other">
-                        <label for="A7"> Any other </label><br>
+                        
                     </td>
                     </tr>
 
@@ -121,7 +172,8 @@
                     </tr>
                     <tr>
                      <td><h3>Placement process: </h3></td>
-                    </tr>
+                    </tr> -->
+    
                     <tr>
                     <td>
                         <input type="checkbox" id="C1" name="T1" value="aptitude_test">
@@ -148,5 +200,6 @@
 
                 <br> <input type="SUBMIT" name="SUBMIT" value="SUBMIT"></br>
 </form>
-</body>
+
+    </body>
 </html>
