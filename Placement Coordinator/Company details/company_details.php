@@ -2,7 +2,47 @@
 require_once("conn.php");
  $cname=$b_no=$build_name=$area=$lm=$sn=$cn=$pn=$mpkg=$mxpkg=$deg=$pname=$pemail=$pno=$pdeg=$apt=$tech_r=$r1=$r2=$pair_req=$pi_r1=$pi_r2=$hr=$any_other="";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     if (!empty($_POST["cmp_name"]))
+//     {
+//         $cname=$_POST["cmp_name"];
+//     }
+//     $query="select * from company where name ='".$canme."'";
+//     $res=mysqli_query($conn,$query);
+//     while($rec=myqli_fetch_assoc($res))
+//     {
+//         if($cname==$rec["c_name"])
+//         {
+        
+        
+//         $b_no=$rec["block_num"];
+//         $build_name=$rec["building_name"];
+//         $area=$rec["area"];
+//         $lm=$rec["landmark"];
+//         $sn=$rec["state"];
+//         $cn=$rec["city"];
+//         $pn=$rec["pincode"];
+//         $mpkg=$rec["min_package"];
+//         $mxpkg=$rec["max_package"];
+//         // $deg=$rec["designation"];
+//         $pname=$rec["manager_name"];
+//         $pemail=$rec["email_id"];
+//         $pno=$rec["mobile_num"];
+//         $pdeg=$rec["designation"];
+//         $apt=$rec["aptitude_test"];
+//         $tech_r=$rec["tech_round"];
+//         $r1=$rec["round_1"];
+//         $r2=$rec["round_2"];
+//         $pair_req=$rec["pair_required"];
+//         $pi_r1=$rec["PI_round1"];
+//         $pi_r2=$rec["PI_round2"];
+//         $hr=$rec["HR_round"];
+//         $any_other=$rec["any_other"];
+        
+       
+//     }}
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+     {
     if (!empty($_POST["cmp_name"]))
     {
         $cname=$_POST["cmp_name"];
@@ -98,11 +138,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 if(isset($_POST["submit"]))
 {
+    if($cname!=" " && $b_no!="" && $build_name!="" && $area!="" && $lm!="" && $sn!="" && $cn!="" && $pn!="" && $deg!="" && $pname!="" && $pemail!="" && $pno!="" && $pdeg!="")
+    {
         $query="insert into company_details(c_name,block_num,building_name,area,landmark,pincode,city,state,min_package,max_package,manager_name,designation,email_id,mobile_num,aptitude_test,tech_round,round_1,round_2,pair_required,PI_round1,PI_round2,HR_round,any_other) 
         VALUES ('".$cname."','".$b_no."','".$build_name."','".$area."','".$lm."','".$pn."','".$cn."','".$sn."','".$mpkg."','".$mxpkg."','".$pname."','".$pdeg."','".$pemail."','".$pno."','".$apt."','".$tech_r."','".$r1."','".$r2."','".$pair_req."','".$pi_r1."','".$pi_r2."','".$hr."','".$any_other."')";
         mysqli_query($conn,$query) or die("something wrong");
         $company_id = $conn->insert_id;
-
+    }
         foreach ($_POST['designations'] as $designation) {
             $designation_name = $designation['name'];
             $designation_packages = $designation['packages'];

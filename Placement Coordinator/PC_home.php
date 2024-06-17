@@ -19,7 +19,7 @@
             <table id="t2">
                 <tr id="row">
                     <td id="op"><a href="PC_student.php"><center><button id="stu">Student</button></center></a></td>
-                    <td id="op"><center><button id="cmp">Company</button></center></td>
+                    <td id="op"><center><a href="PC_company.php"><button id="cmp">Company</button></center></td>
                     <td id="op"><center><button id="plc">Placement process</button></center></td>
                 </tr>
             </table>

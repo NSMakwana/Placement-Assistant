@@ -13,13 +13,18 @@
         </div>
         <div id="data" border='2px solid black'>    
         <?php
+        if($_SERVER["REQUEST_METHOD"]=="POST")
+        {
          if(isset($_POST["ok"]))
          {      
             $n=1;  
             $ssc=$_POST["percent_10"];
             $hsc=$_POST["percent_12"];
 
-                $records_per_page =15;
+         }}
+         if($_SERVER["REQUEST_METHOD"]=="POST")
+         {
+         $records_per_page =15;
 
                 if (isset($_REQUEST['page']) && is_numeric($_REQUEST['page'])) {
                     $current_page = intval($_REQUEST['page']);
@@ -63,7 +68,7 @@
                     echo "<a href='?page=$i'>$i</a>";
                 }  
             echo "</div>";    
-            }
+            }  
            ?>
         </div>
     <div id="filter">

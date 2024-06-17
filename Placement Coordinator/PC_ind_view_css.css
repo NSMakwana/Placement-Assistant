@@ -7,12 +7,13 @@
     position:fixed;
     height:20px;
     width: 100%;
-    position: fixed;
+    position: relative;
     background-color: rgb(2, 153, 153);
     font-size: larger;
     font-family:Arial, Helvetica, sans-serif;
     font-weight: bold; 
-    z-index:-1;
+    z-index:0;
+    
 }
 #photo{
     margin-top:4.9%;
@@ -116,7 +117,7 @@ td,th{
     overflow: scroll;
     /* scrollbar-base-color: black ; */
     width:100%;
-    position:fixed;
-    z-index:1;
+    /* position:fixed; */
+    z-index:0;
     
 }

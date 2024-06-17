@@ -13,6 +13,7 @@
     font-weight: bold; 
     color:white;
 }
+
 #d{
 
     width:100%;
@@ -78,7 +79,7 @@ td,th{
 #bn,#b,#a,#l,#s,#c,#p,#cd,#ce,#cm,#vd,#vp,#ve{
     width:20%;
 }
-#bno,#bname,#area,#lm,#sn,#cn,#pn,#per_designation,#per_num,#per_email{
+#b_no,#b_name,#area,#lm,#sn,#cn,#pn,#per_designation,#per_num,#per_email{
     width:98%;
 }
 #minh,#maxh{

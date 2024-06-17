@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 05, 2024 at 06:26 PM
+-- Host: 127.0.0.1:4306
+-- Generation Time: Jun 17, 2024 at 04:19 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `project`
+-- Database: `placement`
 --
 
 -- --------------------------------------------------------
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `company_details` (
+  `cid` int(11) NOT NULL,
   `c_name` varchar(40) NOT NULL,
   `block_num` varchar(20) NOT NULL,
   `building_name` varchar(40) NOT NULL,
@@ -42,31 +43,36 @@ CREATE TABLE `company_details` (
   `designation` varchar(30) NOT NULL,
   `email_id` varchar(40) NOT NULL,
   `mobile_num` int(10) NOT NULL,
-  `vacant_designation` varchar(20) NOT NULL,
-  `location` varchar(40) NOT NULL,
-  `experience` varchar(20) NOT NULL,
-  `phone_num` varchar(10) NOT NULL,
-  `b_com` varchar(10) NOT NULL,
-  `bsc` varchar(10) NOT NULL,
-  `bba` varchar(10) NOT NULL,
-  `bca` varchar(10) NOT NULL,
-  `b_e` varchar(10) NOT NULL,
-  `btech` varchar(10) NOT NULL,
-  `UG_others` varchar(10) NOT NULL,
-  `pgdca` varchar(10) NOT NULL,
-  `mca` varchar(10) NOT NULL,
-  `mtech` varchar(10) NOT NULL,
-  `msc_cs` varchar(10) NOT NULL,
-  `PG_others` varchar(10) NOT NULL,
-  `aptitude_test` varchar(10) NOT NULL,
-  `tech_round` varchar(10) NOT NULL,
-  `round_1` varchar(10) NOT NULL,
-  `round_2` varchar(10) NOT NULL,
-  `pair_required` varchar(10) NOT NULL,
-  `PI_round1` varchar(10) NOT NULL,
-  `PI_round2` varchar(10) NOT NULL,
-  `HR_round` varchar(10) NOT NULL
+  `aptitude_test` varchar(40) NOT NULL,
+  `tech_round` varchar(40) NOT NULL,
+  `round_1` varchar(40) NOT NULL,
+  `round_2` varchar(40) NOT NULL,
+  `pair_required` varchar(40) NOT NULL,
+  `PI_round1` varchar(40) NOT NULL,
+  `PI_round2` varchar(40) NOT NULL,
+  `HR_round` varchar(40) NOT NULL,
+  `any_other` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `company_details`
+--
+ALTER TABLE `company_details`
+  ADD PRIMARY KEY (`cid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `company_details`
+--
+ALTER TABLE `company_details`
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
