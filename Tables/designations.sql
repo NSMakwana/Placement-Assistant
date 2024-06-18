@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:4306
--- Generation Time: Jun 18, 2024 at 06:39 AM
+-- Host: 127.0.0.1
+-- Generation Time: Jun 18, 2024 at 07:49 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `placement`
+-- Database: `project`
 --
 
 -- --------------------------------------------------------
@@ -55,6 +55,18 @@ CREATE TABLE `designations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `designations`
+--
+
+INSERT INTO `designations` (`id`, `cid`, `name`, `experience_details`, `min_package`, `max_package`, `no_of_pos`, `bond`, `type`, `stipend`, `location`, `bcom`, `bba`, `bsc`, `bca`, `be`, `btech`, `pgdca`, `mca`, `mtech`, `msc_cs`, `msc_aiml`, `anyother`, `remarks`) VALUES
+(32, 58, '  Business     Development       Associate', 'no experie', 240000, 420000, 35, 'Not     Applicable', ' Full Time  ', '    Not Applicable', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(33, 58, 'Customer succcess associate', 'no experie', 240000, 360000, 30, 'Not  Applicable', '  Full Time', '  Not   Applicable', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(34, 58, 'Software development associate', 'no experie', 300000, 500000, 30, ' 18  Months', 'Internship + Full Time', ' 10K-15K (Based on Interview Performance)', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(35, 58, 'Social media associate', 'no experie', 0, 0, 2, 'Not  Applicable', 'Full time', '   Not Applicable', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(36, 59, 'Oracle Functional Consulting', '1 year', 0, 0, 0, '', '', '', '', '', 'B.Sc', '', '', 'B.Tech', '', 'MCA', 'M-TECH', 'MSC-CS', 'Any other', '', '', ''),
+(37, 59, 'Technical Consulting', '1 year', 0, 0, 0, '', '', '', '', '', 'B.Sc', '', '', 'B.Tech', '', 'MCA', 'M-TECH', 'MSC-CS', '', '', '', '');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -73,7 +85,7 @@ ALTER TABLE `designations`
 -- AUTO_INCREMENT for table `designations`
 --
 ALTER TABLE `designations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Constraints for dumped tables
