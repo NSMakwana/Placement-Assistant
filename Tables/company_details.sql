@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:4306
--- Generation Time: Jun 17, 2024 at 04:19 PM
+-- Host: 127.0.0.1
+-- Generation Time: Jun 18, 2024 at 07:42 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `placement`
+-- Database: `project`
 --
 
 -- --------------------------------------------------------
@@ -55,6 +55,14 @@ CREATE TABLE `company_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `company_details`
+--
+
+INSERT INTO `company_details` (`cid`, `c_name`, `block_num`, `building_name`, `area`, `landmark`, `pincode`, `city`, `state`, `min_package`, `max_package`, `manager_name`, `designation`, `email_id`, `mobile_num`, `aptitude_test`, `tech_round`, `round_1`, `round_2`, `pair_required`, `PI_round1`, `PI_round2`, `HR_round`, `any_other`) VALUES
+(58, 'VasyERP Solutions', 'A-05', 'The First', 'Vastrapur', 'behind ITC NARMADA', '380015', 'Ahmedabad', 'Gujarat', '240000', '500000', '', '', '', 2147483647, '', '', '', '', '', '', '', '', ''),
+(59, 'Evosys', '', '', '', '', '', '', '', '10,000 to 15,000', '', '', '', '', 0, '', '', '', '', '', '', '', '', '');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -72,7 +80,7 @@ ALTER TABLE `company_details`
 -- AUTO_INCREMENT for table `company_details`
 --
 ALTER TABLE `company_details`
-  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
