@@ -65,7 +65,7 @@ td,th{
 #sp{
     height:20px;
 }
-#bnh,#bh,#ah,#lh,#sh,#ch,#ph,#cdh,#cmh,#ceh,#vdh,#vph,#veh{
+#bnh,#bh,#ah,#lh,#sh,#ch,#ph,#cdh,#cmh,#ceh,#vdh,#veh,#vposh,#vth,#vbondh,#vloch,#vmph,#vmxph,#vrmh,#vsh{
     width:10%;
     background-color: rgb(4, 66, 70);
     font-weight: 200;
@@ -74,9 +74,10 @@ td,th{
     padding-top: 1px;
     padding-left: 3px;
     padding-bottom:1px;
+    height:max-content;
     
 }
-#bn,#b,#a,#l,#s,#c,#p,#cd,#ce,#cm,#vd,#vp,#ve{
+#bn,#b,#a,#l,#s,#c,#p,#cd,#ce,#cm,#vd,#vp,#ve,#vpos,#vt,#vbond,#vloc,#vmp,#vmxp,#vs{
     width:20%;
 }
 #b_no,#b_name,#area,#lm,#sn,#cn,#pn,#per_designation,#per_num,#per_email{

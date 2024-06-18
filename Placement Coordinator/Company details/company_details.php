@@ -138,17 +138,24 @@ require_once("conn.php");
 }
 if(isset($_POST["submit"]))
 {
-    if($cname!=" " && $b_no!="" && $build_name!="" && $area!="" && $lm!="" && $sn!="" && $cn!="" && $pn!="" && $deg!="" && $pname!="" && $pemail!="" && $pno!="" && $pdeg!="")
-    {
+   
         $query="insert into company_details(c_name,block_num,building_name,area,landmark,pincode,city,state,min_package,max_package,manager_name,designation,email_id,mobile_num,aptitude_test,tech_round,round_1,round_2,pair_required,PI_round1,PI_round2,HR_round,any_other) 
         VALUES ('".$cname."','".$b_no."','".$build_name."','".$area."','".$lm."','".$pn."','".$cn."','".$sn."','".$mpkg."','".$mxpkg."','".$pname."','".$pdeg."','".$pemail."','".$pno."','".$apt."','".$tech_r."','".$r1."','".$r2."','".$pair_req."','".$pi_r1."','".$pi_r2."','".$hr."','".$any_other."')";
         mysqli_query($conn,$query) or die("something wrong");
         $company_id = $conn->insert_id;
-    }
+   
         foreach ($_POST['designations'] as $designation) {
             $designation_name = $designation['name'];
-            $designation_packages = $designation['packages'];
+            $no_pos=$designation['pos'];
             $designation_experience = $designation['ex'];
+            $type=$designation['type'];
+            $bond=$designation['bond'];
+            $location=$designation['location'];
+            $min_packages = $designation['min_package'];
+            $max_packages = $designation['max_package'];
+            $remarks=$designation['remark'];
+            $stipend=$designation['stipend'];
+            
             $designation_ug1 = isset($designation['ug1']) ? $designation['ug1'] : "";
             $designation_ug2 = isset($designation['ug2']) ? $designation['ug2'] : "";
             $designation_ug3 = isset($designation['ug3']) ? $designation['ug3'] : "";
@@ -162,20 +169,9 @@ if(isset($_POST["submit"]))
             $designation_pg5 = isset($designation['pg5']) ? $designation['pg5'] : "";
             $designation_pg6 = isset($designation['pg6']) ? $designation['pg6'] : "";
 
-            $query1 = "INSERT INTO designations (cid, name) VALUES ('$company_id', '$designation_name')";
-            if (mysqli_query($conn, $query1)) {
-                $designation_id = $conn->insert_id;
-
-                $sql = "INSERT INTO packages (designation_id, package_details) VALUES ('$designation_id', '$designation_packages')";
-                $conn->query($sql);
-
-                $sql = "INSERT INTO experiences (designation_id, experience_details) VALUES ('$designation_id', '$designation_experience')";
-                $conn->query($sql);
-
-                $sql = "INSERT INTO qualifications (designation_id, bcom, bba, bsc, bca, be, btech, pgdca, mca, mtech, msc_cs,anyother) 
-                VALUES ('$designation_id', '$designation_ug1', '$designation_ug2', '$designation_ug3', '$designation_ug4','$designation_ug6', '$designation_pg1', '$designation_pg2', '$designation_pg3', '$designation_pg4', '$designation_pg5', '$designation_pg6')";
-                $conn->query($sql);
-            }
+            $query1 = "INSERT INTO designations (cid, name,  experience_details, min_package, max_package, no_of_pos, bond, type, stipend, location, bcom, bba, bsc, bca, be, btech, pgdca, mca, mtech, msc_cs,anyother) 
+            VALUES ('$company_id', '$designation_name','$designation_experience','$min_packages','$max_packages','$no_pos','$bond','$type','$stipend','$location','$designation_ug1', '$designation_ug2', '$designation_ug3', '$designation_ug4','$designation_ug6', '$designation_pg1', '$designation_pg2', '$designation_pg3', '$designation_pg4', '$designation_pg5', '$designation_pg6')";
+            mysqli_query($conn, $query1);                
         }
     
 }
@@ -201,6 +197,7 @@ if(isset($_POST["submit"]))
            designationDiv.innerHTML = `
                <h3>Designation ${designationIndex + 1}</h3>
                <table id="d">
+
                <tr>
                <th id="vdh">
                <label for="designation_${designationIndex}">Designation</label>
@@ -209,11 +206,11 @@ if(isset($_POST["submit"]))
                <input type="text" id="designation_${designationIndex}" name="designations[${designationIndex}][name]">
                </td>
                <td id="s8"></td>
-               <th id="vph">
-               <label for="package_${designationIndex}">Package</label>
+               <th id="vposh">
+               <label for="pos_${designationIndex}">No. of Positions</label>
                </th>
-               <td id="vp">
-               <input type="text" id="package_${designationIndex}" name="designations[${designationIndex}][packages]">
+               <td id="vpos">
+               <input type="number" id="pos_${designationIndex}" name="designations[${designationIndex}][pos]">
                </td>
                <td id="s9"></td>
                <th id="veh">
@@ -225,11 +222,78 @@ if(isset($_POST["submit"]))
                     <option value="1 year">1 year</option>
                     <option value="2 year">2 year</option>
                     <option value="more than 2 year">more than 2 year</option>
-                </select></td>
-               
+                </select></td>               
                </td>
                </tr>
+
+               <tr><td id="sp"></td><td id="sp"></td><td id="sp"></td></tr>
+
+               <tr>
+               <th id="vth">
+               <label for="type_${designationIndex}">Type</label>
+               </td>
+               <td id="vt">
+               <input type="text" id="type_${designationIndex}" name="designations[${designationIndex}][type]">
+               </td>
+               <td id="s10"></td>
+               <th id="vbondh">
+               <label for="bond_${designationIndex}">Bond</label>
+               </th>
+               <td id="vbond">
+               <input type="text" id="bond_${designationIndex}" name="designations[${designationIndex}][bond]">
+               </td>
+               <td id="s11"></td>
+               <th id="vloch">
+               <label for="loc_${designationIndex}">Location</label>
+               </th>
+               <td id="vloc">
+               <input type="text" id="loc_${designationIndex}" name="designations[${designationIndex}][location]">
+                </td>               
+               </td>
+               </tr>
+
+               <tr><td id="sp"></td><td id="sp"></td><td id="sp"></td></tr>
+
+               <tr>
+               <th id="vmph">
+               <label for="m_package_${designationIndex}">Minimum package</label>
+               </td>
+               <td id="vmp">
+               <input type="text" id="m_package_${designationIndex}" name="designations[${designationIndex}][min_package]">
+               </td>
+               <td id="s12"></td>
+               <th id="vmph">
+               <label for="mx_package_${designationIndex}">Maximum Package</label>
+               </th>
+               <td id="vmxp">
+               <input type="text" id="mx_package_${designationIndex}" name="designations[${designationIndex}][max_package]">
+               </td>
+               <td id="s13"></td>
+               <th id="vrmh">
+               <label for="remark_${designationIndex}">Remarks</label>
+               </th>
+               <td id="vrm">
+               <textarea id="remark_${designationIndex}" name="designations[${designationIndex}][remark]"></textarea>
+                </td>               
+               </td>
+               </tr>
+               
+               <tr><td id="sp"></td><td id="sp"></td><td id="sp"></td></tr>
+
+               <tr>
+               <th id="vmph">
+               <label for="stipend_${designationIndex}">Stipend</label>
+               </td>
+               <td id="vs">
+               <input type="text" id="stipend_${designationIndex}" name="designations[${designationIndex}][stipend]">
+               </td>
+               <td id="sp"></td><td id="sp"></td><td id="sp"></td>
+               
+               </tr>
+               
+               
                </table>
+
                <h3><label for="qualification_${designationIndex}">Qualification</label></h3>
                <table id="new">
                <tr>
@@ -293,7 +357,7 @@ if(isset($_POST["submit"]))
                          
                     <tr>
                     <th id="nh"><label id="lbl"> Name  </label></th>
-                    <td id="n"><input type="name" id="name" name="cmp_name"></td>
+                    <td id="n"><input type="name" id="name" name="cmp_name" required></td>
                     </tr>                    
                     <tr><td id="sp"></td><td id="sp"></td><td id="sp"></td><td id="sp"></td><td id="sp"></td><td id="sp"></td><td id="sp"></td><td id="sp"></td></tr>
                     <tr>
