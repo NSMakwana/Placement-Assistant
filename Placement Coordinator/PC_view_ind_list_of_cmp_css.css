@@ -1,0 +1,124 @@
+#title{
+    border-bottom: 2px solid black;
+    margin-top:0%;
+    margin-left: 0%;
+    padding-top:10px;
+    padding-bottom:10px;
+    position:fixed;
+    height:20px;
+    width: 100%;
+    position: relative;
+    background-color: rgb(2, 153, 153);
+    font-size: larger;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold; 
+    z-index:0;
+    
+}
+#s{
+    border: 0px ;
+    height: 10px;
+}
+#p{
+    height:200px;
+    width: 200px;
+}
+#data{
+    margin-top:0px;
+    margin-left:2px;
+    border:2px solid black;
+    height:300;
+    width:70%;
+    /* position:relative; */
+}
+#h{
+    padding-top: 1px;
+    padding-left: 3px;
+    padding-bottom:1px;
+}
+#d{
+    
+    width:80.3%;
+    border-collapse: collapse;
+    border:2px solid black;
+    margin-top:-10px;
+}
+th{
+    width:30%;
+    text-align: left;
+    background-color: rgb(4, 66, 70);
+    color:white;
+    border-bottom:2px solid white;
+    font-weight:200;
+}
+#c_name,#b_no,#b_name,#area,#landm,#pincode,#city,#state,#min_pkg,#max_pkg
+{
+    padding-left:5px;
+
+}
+td{
+    border:2px solid black;
+}
+td,th{
+    height:5px;
+   
+    font-size:20px;
+   
+}
+#pd{
+    
+    height:30px;
+    width:80%;
+    padding-bottom: 0%;
+    border:2px solid black;
+    background-color: rgb(4, 66, 70);
+    color: white;
+    font-variant: small-caps;
+    margin-top:3%;
+}
+#ed{
+    border:2px solid black;
+    background-color: rgb(4, 66, 70);
+    color: white;
+    font-variant: small-caps;
+    margin-top:4%;
+    width:80%;
+    margin-left: 0%;
+    
+    /* position: relative;    */
+}
+#edud{
+    width:80.3%;
+    border-collapse: collapse;
+    border:2px solid black;
+    margin-top:-0.9%;
+    margin-left:0%;
+    /* position:relative; */
+}
+#des{
+    border:2px solid black;
+    background-color: rgb(4, 66, 70);
+    color: white;
+    font-variant: small-caps;
+    margin-top:4%;
+    width:80%;
+    margin-left: 0%;
+}
+#designation
+{
+    width:80.3%;
+    border-collapse: collapse;
+    /* border:2px solid black; */
+    margin-top:-0.9%;
+    margin-left:0%;
+}
+#details{
+    margin-top:0;
+    height:100%;
+    /* overflow: scroll; */
+    /* scrollbar-base-color: black ; */
+    width:100%;
+    /* position:fixed; */
+    z-index:0;
+    
+}

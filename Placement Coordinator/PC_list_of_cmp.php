@@ -16,8 +16,7 @@
         <div id="data">    
            <?php           
                 $n=1;            
-                $cmp=$_REQUEST["c"];
-            
+                        
                 $records_per_page = 9;
 
                 if (isset($_GET['page']) && is_numeric($_GET['page'])) {
@@ -28,20 +27,21 @@
                 
                 $start_from = ($current_page - 1) * $records_per_page;
                 
-                $query="SELECT enum,name from stud_personal where course='".$course."'"." LIMIT $start_from, $records_per_page";
+                $query="SELECT c_name,cid from company_details LIMIT $start_from, $records_per_page";
                 $result=mysqli_query($conn,$query);
                
                  echo "<table id='d'>";
                 echo "<tr><th>Sr no.</th>
                 <th>Name</th>
                 <th></th>
-                </tr>";                
+                </tr>";   
+                $n=1;
                 while ($row=mysqli_fetch_assoc($result)) {
                                                              
                     echo '<tr>';
-                    echo "<td id='sr'>".$row['enum']."</td>";
-                    echo "<td id='name'>". $row['name']."</td>";
-                    echo "<td id='view'><a href='PC_ind_view.php?id=".$row['enum']."'>View</a></td>";
+                    echo "<td id='sr'>".$n."</td>";
+                    echo "<td id='name'>". $row['c_name']."</td>";
+                    echo "<td id='view'><a href='PC_view_ind_list_of_cmp.php?cid=".$row['cid']."'>View</a></td>";
                     echo '</tr> ';
                     $n++;
                 }
@@ -49,7 +49,7 @@
                 echo "</table>";
                 
                 
-                $query = "SELECT COUNT(*) total FROM stud_personal where course='".$course."' ";
+                $query = "SELECT COUNT(*) total FROM company_details";
                 $result = mysqli_query($conn, $query);
                 $row = mysqli_fetch_assoc($result);
                 $total_records = $row['total'];
@@ -57,7 +57,7 @@
                 
                 echo "<div id='pg'>";
                 for ($i = 1; $i <= $total_pages; $i++) {
-                    echo "<a href='?page=$i&$c=cmp'>$i</a>";
+                    echo "<a href='?page=$i>$i</a>";
                 }  
             echo "</div>";    
         ?>
