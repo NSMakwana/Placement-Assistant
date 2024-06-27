@@ -1,41 +1,26 @@
+body{
+    background-color:  rgb(237, 248, 248);
+}
 #title{
     border-bottom: 2px solid black;
     margin-top:0px;
     padding-top:10px;
     padding-bottom:0;
-    background-color: rgb(2, 84, 84);
-}
-body{
- background-color:  rgb(237, 248, 248);
-}
-h3{
-    color:white;
-    text-shadow: 0 0 10px black, 0 0 5px black;
-}
-#logo{
-        margin-left: 90%;
-}
+    background-color: rgb(1, 73, 73);
+    height:10%;
+    }
 
 #t{
     width:100%;
+   
 }
-td{
-    width:50%;
-}
-#t2{
-    margin-left: 0;
-    width:100%;
-    /* border: 1px solid black; */
-    
-}
-#op{
-    width:33%;
-    border: 1px solid black;
 
+#l{
+    text-align: right;   
 }
-#stu,#cmp,#plc{
-    height:30px;
-    font-size: larger;
+h1{
+    color:white;
+    text-shadow: 0 0 10px black, 0 0 5px black;
 }
 
 /* Navigation */
@@ -44,20 +29,16 @@ td{
     background-color: rgb(86, 109, 109);
     margin-top:0.2%;
     border-bottom: 3px solid black;
-    height:25px;
-    padding:0px;
 
 }
 .nav a{
-    float:right;
+    float:left;
     color:white;
     font-weight:600;
     text-align:center;
     padding:14px 16px;
     text-decoration:none;
     font-size:18px;
-    padding-top:0px;
-
     
 }
 .nav a.active{

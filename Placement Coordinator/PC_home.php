@@ -10,11 +10,17 @@
         <div id="title">
             <table id="t">
                 <tr>
-                    <td><h3>Department Of Computer Science</h3></td>
+                    <td><h3>Placement Coordinator dashboard</h3></td>
                     <td id="l"><img id="logo" src="../Images/Gujarat-university-logo1.png" height="50px" width="50px"></td>
                 </tr>
             </table>
         </div>
+        <div class="nav">
+				
+				
+				<a href="login.php">logout</a>
+				<a class="active" href="../Homepage.php">Home</a>
+				</div>
         <div id="option">
             <table id="t2">
                 <tr id="row">

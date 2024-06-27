@@ -7,7 +7,7 @@
 <html>
 
     <head>
-        <link rel="stylesheet" href="PC_ind_css.css">
+        <link rel="stylesheet" href="PC_list_of_cmp.css">
     </head>
     <body>
     <div id="title">

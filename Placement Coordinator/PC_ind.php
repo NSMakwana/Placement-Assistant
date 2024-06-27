@@ -1,6 +1,7 @@
 <?php
      session_start();
      require_once("conn.php");
+     require_once("back and home titleline.php");
      $batch=$course="";
      
 ?>
@@ -9,6 +10,12 @@
             <link rel="stylesheet" href="PC_ind_css.css">
     </head>
     <body>
+    <div class="nav">
+				
+				
+				<a href="PC_student.php"><button id="b"><img src="../Images/back.png" height="30px" width="35px"></button></a>
+				<a class="active" href="../Homepage.php">Home</a>
+				</div>
     <div id="title">
            <center>List of Student</center>
         </div>
@@ -35,7 +42,7 @@
                 $result=mysqli_query($conn,$query);
                
                  echo "<table id='d'>";
-                echo "<tr><th>Sr no.</th>
+                echo "<tr><th>Sr. No.</th>
                 <th>Name</th>
                 <th></th>
                 </tr>";                

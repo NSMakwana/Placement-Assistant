@@ -1,6 +1,7 @@
 <?php
 
 require_once("conn.php");
+require_once("back and home titleline.php");
 
 $id=$_REQUEST['id'];
 $query="Select name from stud_personal where enum=$id";
@@ -15,7 +16,10 @@ $name=$row["name"];
             <link rel="stylesheet" href="PC_ind_view_css.css">
     </head>
     <body>
-
+    <div class="nav">				
+				<a href="PC_ind.php"><button id="b"><img src="../Images/back.png" height="30px" width="35px"></button></a>
+				<a class="active" href="../Homepage.php">Home</a>
+				</div>
     <div id="title">
            <center>Details of <?php echo $name;?> </center>
     </div>
@@ -59,20 +63,20 @@ $name=$row["name"];
             
             echo "<tr><th id='h'>Obtained marks[HSC]</th><td id='m_hsc'>".$row['marks_hsc']."</td>";
             echo "<tr><th id='h'>Total marks[HSC]</th><td id='tm_hsc'>". $row['tm_hsc']."</td></tr>";
-            echo "<tr><th id='h'>Percentage[HSC]</th><td id='p_hsc'>". 100*$row['marks_hsc']/$row['tm_hsc']."</td></tr>";
+            echo "<tr><th id='h'>Percentage[HSC]</th><td id='p_hsc'>".number_format(100*$row['marks_hsc']/$row['tm_hsc'],2)."</td></tr>";
             echo "<tr><th id='h'>Year of Passing[HSC]</th><td id='y_hsc'>". $row['year_hsc']."</td></tr>";
             echo "<tr><th id='h'>Board[HSC]</th><td id='b_hsc'>". $row['board_hsc']."</td></tr>";
             
             echo "<tr><th id='h'>Obtained marks[Bachelor]</th><td id='m_bachelor'>".$row['marks_bachelor']."</td>";
             echo "<tr><th id='h'>Total marks[Bachelor]</th><td id='tm_bachelor'>". $row['tm_bachelor']."</td></tr>";
-            echo "<tr><th id='h'>Percentage[Bachelor]</th><td id='p_bachelor'>". 100*$row['marks_bachelor']/$row['tm_bachelor']."</td></tr>";
+            echo "<tr><th id='h'>Percentage[Bachelor]</th><td id='p_bachelor'>".number_format(100*$row['marks_bachelor']/$row['tm_bachelor'],2)."</td></tr>";
             echo "<tr><th id='h'>Year of Passing[Bachelor]</th><td id='y_bachelor'>". $row['year_bachelor']."</td></tr>";
             echo "<tr><th id='h'>Degree[Bachelor]</th><td id='deg_bachelor'>". $row['deg_bachelor']."</td></tr>";
             echo "<tr><th id='h'>University[Bachelor]</th><td id='uni_bachelor'>". $row['uni_bachelor']."</td></tr>";
     
             echo "<tr><th id='h'>Obtained marks[Master]</th><td id='m_master'>".$row['marks_master']."</td>";
             echo "<tr><th id='h'>Total marks[Master]</th><td id='tm_master'>". $row['tm_master']."</td></tr>";
-            echo "<tr><th id='h'>Percentage[Master]</th><td id='p_master'>". 100*$row['marks_master']/$row['tm_bachelor']."</td></tr>";
+            echo "<tr><th id='h'>Percentage[Master]</th><td id='p_master'>". number_format(100*$row['marks_master']/$row['tm_bachelor'],2)."</td></tr>";
             echo "<tr><th id='h'>Year of Passing[Master]</th><td id='y_master'>". $row['year_master']."</td></tr>";
             echo "<tr><th id='h'>Degree[Master]</th><td id='deg_master'>". $row['deg_master']."</td></tr>";
             echo "<tr><th id='h'>University[Master]</th><td id='uni_master'>". $row['uni_master']."</td></tr>";

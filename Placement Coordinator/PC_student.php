@@ -11,10 +11,16 @@
     <title>Document</title>
 </head>
 <body>
+<div class="nav">
+				
+				
+				<a href="PC_home.php"><button id="b"><img src="../Images/back.png" height="30px" width="35px"></button></a>
+				<a class="active" href="../Homepage.php">Home</a>
+				</div>
 <div id="title">
            <center>STUDENT</center>
         </div>
-
+        
     <div id="option">
         
         <form name="stu_option" method="post">
@@ -23,16 +29,19 @@
                     
                     <td id="op"><center><label for="batch">Batch:</label>
                                         <select id="batch" name="batch">
-                                        <option value="21-23">21-23</option>
+                                        <option value="21-22">21-22</option>
                                         <option value="23-24">23-24</option>
                                         <option value="25-26">24-25</option>                                        
                                         </select></center></a></td>
                     <td id="op"><center><label for="program">Program:</label>
                                         <select id="program" name="program">
                                         <option value="MCA">MCA</option>
+                                        <option value="MSc AIML">MSc AIML</option>   
                                         <option value="M Tech">M Tech</option>
                                         <option value="MSC CS">MSC CS</option>                                        
-                                        <option value="PGDCA">PGDCA</option>                                        
+                                        <option value="PGDCA">PGDCA</option>    
+                                         
+                                                                                                               
                                         </select></center></a></td>
                     <td id="op"><center><label for="report">Report:</label>
                                         <select id="report" name="report">
@@ -53,7 +62,7 @@
         </tr>
         <tr id="row">
             <td></td>
-            <td id="op"><center><input type="submit" name="submit" id="submit" value="Submit"><center></td>
+            <td id="op"><center><input type="submit" name="submit" id="submit" value="Search"><center></td>
             <td></td>
         </tr>
         </form>

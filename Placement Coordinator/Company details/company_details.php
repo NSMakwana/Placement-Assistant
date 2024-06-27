@@ -1,46 +1,12 @@
 <?php
 require_once("conn.php");
+require('../vendor/autoload.php');
+require_once("conn.php");
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
  $cname=$b_no=$build_name=$area=$lm=$sn=$cn=$pn=$mpkg=$mxpkg=$deg=$pname=$pemail=$pno=$pdeg=$apt=$tech_r=$r1=$r2=$pair_req=$pi_r1=$pi_r2=$hr=$any_other="";
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     if (!empty($_POST["cmp_name"]))
-//     {
-//         $cname=$_POST["cmp_name"];
-//     }
-//     $query="select * from company where name ='".$canme."'";
-//     $res=mysqli_query($conn,$query);
-//     while($rec=myqli_fetch_assoc($res))
-//     {
-//         if($cname==$rec["c_name"])
-//         {
-        
-        
-//         $b_no=$rec["block_num"];
-//         $build_name=$rec["building_name"];
-//         $area=$rec["area"];
-//         $lm=$rec["landmark"];
-//         $sn=$rec["state"];
-//         $cn=$rec["city"];
-//         $pn=$rec["pincode"];
-//         $mpkg=$rec["min_package"];
-//         $mxpkg=$rec["max_package"];
-//         // $deg=$rec["designation"];
-//         $pname=$rec["manager_name"];
-//         $pemail=$rec["email_id"];
-//         $pno=$rec["mobile_num"];
-//         $pdeg=$rec["designation"];
-//         $apt=$rec["aptitude_test"];
-//         $tech_r=$rec["tech_round"];
-//         $r1=$rec["round_1"];
-//         $r2=$rec["round_2"];
-//         $pair_req=$rec["pair_required"];
-//         $pi_r1=$rec["PI_round1"];
-//         $pi_r2=$rec["PI_round2"];
-//         $hr=$rec["HR_round"];
-//         $any_other=$rec["any_other"];
-        
-       
-//     }}
     if ($_SERVER["REQUEST_METHOD"] == "POST")
      {
     if (!empty($_POST["cmp_name"]))
@@ -347,7 +313,7 @@ if(isset($_POST["submit"]))
         </div>
     
 <div id="details">
-<form method="post">
+<form method="post" enctype="multipart/form-data">
                 <h3 id="he1">Name and Address</Address> </h3>             
           
                     <table id="nd">  
@@ -357,7 +323,7 @@ if(isset($_POST["submit"]))
                          
                     <tr>
                     <th id="nh"><label id="lbl"> Name  </label></th>
-                    <td id="n"><input type="name" id="name" name="cmp_name" required></td>
+                    <td id="n"><input type="name" id="name" name="cmp_name"></td>
                     </tr>                    
                     <tr><td id="sp"></td><td id="sp"></td><td id="sp"></td><td id="sp"></td><td id="sp"></td><td id="sp"></td><td id="sp"></td><td id="sp"></td></tr>
                     <tr>
@@ -437,7 +403,7 @@ if(isset($_POST["submit"]))
                     </tr> 
                     </table>
 
-                    <h3 id="he3">Details of Vacancy </h3>
+                    <h3 id="he3">Details of JD</h3>
 
                    
                     <div id="designation"></div>
@@ -473,9 +439,129 @@ if(isset($_POST["submit"]))
                     </tr>
                 </table>
 
-
                 <br> <input type="submit" name="submit" value="submit"></br> 
+                <br><br>
+                <input type="file" name="file_import">
+                <br>
+                <br><input type="SUBMIT" name="save_excel_data" value="Import Company details from Excel file">
+                <br><br>
+                <input type="file" name="file_import_designation">
+                <br>
+                <br><input type="SUBMIT" name="save_excel_data_d" value="Import Vacancy details from Excel file">
 </form>
+</form> 
 
     </body>
+    <?php
+
+if(isset($_POST['save_excel_data']))
+{
+    $fileName = $_FILES["file_import"]['name'];
+    $file_ext = pathinfo($fileName, PATHINFO_EXTENSION);
+
+    $allowed_ext = ['xls','csv','xlsx'];
+
+    if(in_array($file_ext, $allowed_ext))
+    {
+        $inputFileNamePath = $_FILES["file_import"]['tmp_name'];
+        $spreadsheet = PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileNamePath);
+        $data = $spreadsheet->getActiveSheet()->toArray();
+
+        $count = "0";
+        foreach($data as $row)
+        {
+            
+            $cname=$row['1'];
+            $b_no=$row['2'];
+            $build_name=$row['3'];
+            $area=$row['4'];
+            $lm=$row['5'];
+            $sn=$row['6'];
+            $cn=$row['7'];
+            $pn=$row['8'];
+            $mpkg=$row['9'];
+            $mxpkg=$row['10'];
+            $deg=$row['11'];
+            $pname=$row['12'];
+            $pemail=$row['12'];
+            $pno=$row['14'];
+            $pdeg=$row['15'];
+            $apt=$row['16'];
+            $tech_r=$row['17'];
+            $r1=$row['18'];
+            $r2=$row['19'];
+            $pair_req=$row['20'];
+            $pi_r1=$row['21'];
+            $pi_r2=$row['22'];
+            $hr=$row['23'];
+            // $any_other=$row['24'];
+                
+
+               
+              
+            $query="insert into company_details(c_name,block_num,building_name,area,landmark,pincode,city,state,min_package,max_package,manager_name,designation,email_id,mobile_num,aptitude_test,tech_round,round_1,round_2,pair_required,PI_round1,PI_round2,HR_round,any_other) 
+            VALUES ('".$cname."','".$b_no."','".$build_name."','".$area."','".$lm."','".$pn."','".$cn."','".$sn."','".$mpkg."','".$mxpkg."','".$pname."','".$pdeg."','".$pemail."','".$pno."','".$apt."','".$tech_r."','".$r1."','".$r2."','".$pair_req."','".$pi_r1."','".$pi_r2."','".$hr."','".$any_other."')";
+                mysqli_query($conn,$query) or die("something wrong");
+        
+        }
+
+       }
+}
+if(isset($_POST['save_excel_data_d']))
+{
+    $fileName = $_FILES["file_import_designation"]['name'];
+    $file_ext = pathinfo($fileName, PATHINFO_EXTENSION);
+
+    $allowed_ext = ['xls','csv','xlsx'];
+
+    if(in_array($file_ext, $allowed_ext))
+    {
+        $inputFileNamePath = $_FILES["file_import_designation"]['tmp_name'];
+        $spreadsheet = PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileNamePath);
+        $data = $spreadsheet->getActiveSheet()->toArray();
+
+        $count = "0";
+        foreach($data as $row)
+        {
+            $cmp_name=$row['1'];
+            $designation_name = $row['2'];
+            $no_pos=$row['3'];
+            $designation_experience = $row['4'];
+            $type=$row['5'];
+            $bond=$row['6'];
+            $location=$row['7'];
+            $min_packages = $row['8'];
+            $max_packages =$row['9'];
+            $remarks=$row['10'];
+            $stipend=$row['11'];
+            
+            $designation_ug1 = $row['12'];
+            $designation_ug2 = $row['13'];
+            $designation_ug3 = $row['14'];
+            $designation_ug4 = $row['15'];
+            $designation_ug5 = $row['16'];
+            $designation_ug6 = $row['17'];
+            $designation_pg1 = $row['18'];
+            $designation_pg2 = $row['19'];
+            $designation_pg3 =$row['20'];
+            $designation_pg4 = $row['21'];
+            $designation_pg5 = $row['22'];
+            $designation_pg6 = $row['23'];
+
+                
+            $query="SELECT cid from company_details where c_name like '".$cmp_name."'";
+            $res=mysqli_query($conn,$query);
+            $r=mysqli_fetch_assoc($res);
+            $cid=$r['cid'];
+            echo $cid;
+            $query1 = "INSERT INTO designations (cid, name,  experience_details, min_package, max_package, no_of_pos, bond, type, stipend, location, bcom, bba, bsc, bca, be, btech, pgdca, mca, mtech, msc_cs,anyother) 
+            VALUES ('$cid', '$designation_name','$designation_experience','$min_packages','$max_packages','$no_pos','$bond','$type','$stipend','$location','$designation_ug1', '$designation_ug2', '$designation_ug3', '$designation_ug4','$designation_ug6', '$designation_pg1', '$designation_pg2', '$designation_pg3', '$designation_pg4', '$designation_pg5', '$designation_pg6')";
+            mysqli_query($conn, $query1); 
+        
+        }
+
+       }
+}
+
+?>
 </html>

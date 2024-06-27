@@ -1,18 +1,17 @@
 #title{
     border-bottom: 2px solid black;
-    margin-top:0%;
+    margin-top:0.2%;
     margin-left: 0%;
     padding-top:10px;
     padding-bottom:10px;
-    position:fixed;
     height:20px;
-    width: 100%;
-    position: relative;
+    width: 100.4%;
+    /* position: relative; */
     background-color: rgb(2, 153, 153);
     font-size: larger;
     font-family:Arial, Helvetica, sans-serif;
     font-weight: bold; 
-    z-index:0;
+
     
 }
 #photo{
@@ -108,16 +107,12 @@ td,th{
     border:2px solid black;
     height:400;
     width:70%;
-    /* position:relative; */
-    /* overflow: scroll; */
+    
 }
 #details{
     margin-top:0;
     height:100%;
-    overflow: scroll;
-    /* scrollbar-base-color: black ; */
     width:100%;
-    /* position:fixed; */
-    z-index:0;
+    
     
 }

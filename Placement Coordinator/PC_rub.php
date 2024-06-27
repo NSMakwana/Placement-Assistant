@@ -1,78 +1,44 @@
 <?php
     session_start();
     require_once("conn.php");
+    require_once("back and home titleline.php");
 ?>
 <html>
     <head>
         <link rel="stylesheet" href="PC_rub_css.css">
+        
     </head>
+    
     <body>
-    <body>
+    <script>
+        function print(divId) {
+            
+            let printContents = document.getElementById(divId).innerHTML;
+            
+            let originalContents = document.body.innerHTML;
+           
+
+            let print_area=window.open();
+            print_area.document.body.innerHTML=printContents;
+            print_area.document.close();
+            print_area.focus();
+            print_area.print();
+            print_area.close();
+            
+            
+        }
+        
+    </script>
+    <div class="nav">				
+				<a href="PC_ind.php"><button id="b"><img src="../Images/back.png" height="30px" width="35px"></button></a>
+				<a class="active" href="../Homepage.php">Home</a>
+				</div>
     <div id="title">
            <center>List of Student</center>
-        </div>
-        <div id="data" border='2px solid black'>    
-        <?php
-        if($_SERVER["REQUEST_METHOD"]=="POST")
-        {
-         if(isset($_POST["ok"]))
-         {      
-            $n=1;  
-            $ssc=$_POST["percent_10"];
-            $hsc=$_POST["percent_12"];
-
-         }}
-         if($_SERVER["REQUEST_METHOD"]=="POST")
-         {
-         $records_per_page =15;
-
-                if (isset($_REQUEST['page']) && is_numeric($_REQUEST['page'])) {
-                    $current_page = intval($_REQUEST['page']);
-                } else {
-                    $current_page = 1;
-                }
-                
-                $start_from = ($current_page - 1) * $records_per_page;
-                $query="SELECT  stud_personal.enum,stud_personal.name,stud_edu.perct_ssc,stud_edu.perct_hsc from stud_edu INNER JOIN stud_personal on stud_personal.enum=stud_edu.enum where stud_edu.perct_ssc > $ssc and stud_edu.perct_hsc >$hsc LIMIT $start_from, $records_per_page";
-                
-                $result=mysqli_query($conn,$query);
-                
-                echo "<table id='d'>";
-                echo "<tr><th>Sr no.</th>
-                <th>Name</th>
-                <th>SSC</th>
-                <th>HSC</th>
-                </tr>";                
-                while ($row=mysqli_fetch_assoc($result)) {
-                                                             
-                    echo '<tr>';
-                    echo "<td id='sr'>".$row['enum']."</td>";
-                    echo "<td id='name'>". $row['name']."</td>";
-                    echo "<td id='marks'>". $row['perct_ssc']."</td>";
-                    echo "<td id='marks'>". $row['perct_hsc']."</td>";
-                    echo '</tr> ';
-                    $n++;
-                }
-                
-                echo "</table>";
-                
-                
-                $query = "SELECT COUNT(*) total FROM stud_edu where perct_ssc>$ssc and perct_hsc>$hsc";
-                $result = mysqli_query($conn, $query);
-                $row = mysqli_fetch_assoc($result);
-                $total_records = $row['total'];
-                $total_pages = ceil($total_records / $records_per_page);
-                
-                echo "<div id='pg'>";
-                for ($i = 1; $i <= $total_pages; $i++) {
-                    echo "<a href='?page=$i'>$i</a>";
-                }  
-            echo "</div>";    
-            }  
-           ?>
-        </div>
-    <div id="filter">
-    <form id="f" method="post">
+    </div>
+      <div id="details"> 
+      <div id="filter">
+    <form method="post">
     <center><div id="q">Qualifications</div></center>
                
         <table id="f">
@@ -98,35 +64,77 @@
                             </select></td>
             </tr>
             <tr>
-                <td id="op"><label for="expr">Experience(in year):</label></td>
-                <td id="op"><select id="expr" name="expr">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="3">5</option>                                        
+                <td id="op"><label for="year_of_passing_master">Year of passing [Master]:</label></td>
+                <td id="op"><select id="year_of_passing_master" name="year_passing">
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>                   
                             <option value="NULL">-----</option>                                        
                             </select></td>
             </tr>
-            <tr>
-                <td id="op"><label for="backlog">Backlog</label></td>
-                <td id="op"><select id="backlog" name="backlog">
-                            <option value="0">No Backlog</option> 
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="3">5</option>                                                       
-                            </select></td>
-            </tr>
+           
             <tr>
                 <td></td>
                 <td id="op"><input type="submit" id="ok" name="ok" value="OK"></td>
             </tr>
+
         </table>
     </form>
+                <button id="print" onclick="print('data')">Print</button>
+               
     </div>
-    
+    <?php
+        if($_SERVER["REQUEST_METHOD"]=="POST")
+        {
+         if(isset($_POST["ok"]))
+         {      
+            $n=1;  
+            $ssc=$_POST["percent_10"];
+            $hsc=$_POST["percent_12"];
+            $y_master=$_POST["year_passing"];
 
+         }}
+         if($_SERVER["REQUEST_METHOD"]=="POST")
+         {
+       
+                $query="SELECT  stud_personal.enum,stud_personal.name,stud_edu.perct_ssc,stud_edu.perct_hsc,stud_edu.year_master from stud_edu INNER JOIN stud_personal on stud_personal.enum=stud_edu.enum where stud_edu.perct_ssc > $ssc and stud_edu.perct_hsc >$hsc and stud_edu.year_master = $y_master";
+                
+                $result=mysqli_query($conn,$query);
+                $row=mysqli_fetch_assoc($result);
+                if(mysqli_num_rows($result)>0){ 
+                echo  "<div id='data' border='2px solid black'>";
+                echo "<table id='d'>";
+                echo "<tr><th>Sr.No.</th>
+                <th>Name</th>
+                <th>SSC</th>
+                <th>HSC</th>
+                </tr>";    
+                }
+                else
+                {
+                    echo"data not found";
+                }        
+                while ($row=mysqli_fetch_assoc($result)) {
+                    
+                    {                          
+                        echo '<tr>';
+                        echo "<td id='sr'>".$row['enum']."</td>";
+                        echo "<td id='name'>". $row['name']."</td>";
+                        echo "<td id='marks'>".number_format( $row['perct_ssc'],2)."</td>";
+                        echo "<td id='marks'>".number_format($row['perct_hsc'],2)."</td>";
+                        echo '</tr> ';
+                        $n++;
+                    }
+                }
+                
+                echo "</table>";
+                echo "</div>";
+                
+               
+           
+            }  
+           ?>
+      </div>
 </body>
 </html>

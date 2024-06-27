@@ -1,5 +1,5 @@
 <?php
-require('../vendor/autoload.php');
+require_once('../vendor/autoload.php');
 require_once("conn.php");
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -546,7 +546,7 @@ if(isset($_POST["submit"]))
 
       <tr>
         <td>Date of Birth:</td>
-        <td><input type="date" name="dob" required></td>
+        <td><input type="date" name="dob" ></td>
       </tr>
 
       <tr>
