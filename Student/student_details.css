@@ -1,0 +1,191 @@
+#title{
+    border-bottom: 2px solid black;
+    margin-top:0%;
+    margin-left: 0%;
+    padding-top:10px;
+    padding-bottom:10px;
+    height:20px;
+    width: 100%;
+    /* position: fixed; */
+    background-color:rgb(13, 95, 105);
+    font-size: larger;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold; 
+    color:white;
+}
+
+#d{
+
+    width:100%;
+    /* border-collapse: collapse;
+    border: 1px solid black; */
+    /* margin-top:30px; */
+    /* position: relative; */
+}
+#nd,#d2{
+    width:100%;
+   
+}
+#new{
+    width:100%;
+}
+#new2{
+    width:86%;   
+
+}
+#C4,#C3{
+    margin-left: 25px;
+}
+#n1{
+    width:20%;
+    /* border: 1px solid black; */
+}
+td,th{
+    /* border: 1px solid black; */
+    font-size: larger;
+}
+
+/* name, rollno heading */
+#nh,#rnh,#ndrh,#rmh{
+    width:15.2%;
+    background-color: rgb(4, 66, 70);
+    font-weight: 200;
+    color: white;
+    text-align: left;
+    padding-top: 1px;
+    padding-left: 3px;
+    padding-bottom:1px;
+}
+/* roll no */
+#rn,#ndr{
+    height:25px;
+}
+/* name */
+#n,#rm{
+    width:101%;
+    height:25px;
+}
+/* course, email, mobile no, dob heading */
+#cnh,#mnh,#eh,#dobh{
+    width:7.9%;
+    height:25px;
+    background-color: rgb(4, 66, 70);
+    font-weight: 200;
+    color: white;
+    text-align: left;
+    padding-top: 1px;
+    padding-left: 3px;
+    padding-bottom:1px;
+}
+/* course, email, mobile no, dob */
+#con,#e,#mn,#dob{
+    width:13.50%;
+    height:25px;
+    
+}
+#course,#mobile,#email,#d_o_b{
+    width:100%;
+    height:100%;
+}
+
+#bnh,#bh,#ah,#lh,#sh,#ch,#ph,#omsh,#tmsh,#psh,#bsh,#ysh,#omhh,#tmhh,#pchh,#bhsh,#yhh,#sth,#ombh,#tmbh,#pcbh,#dnbh,#ybh,#ubh{
+    width:10%;
+    background-color: rgb(4, 66, 70);
+    font-weight: 200;
+    color: white;
+    text-align: left;
+    padding-top: 1px;
+    padding-left: 3px;
+    padding-bottom:1px;
+    height:max-content;
+    
+}
+#ommh,#tmmh,#pcmh,#dnmh,#ymh,#umh
+{
+    width:14%;
+    background-color: rgb(4, 66, 70);
+    font-weight: 200;
+    color: white;
+    text-align: left;
+    padding-top: 1px;
+    padding-left: 3px;
+    padding-bottom:1px;
+    height:max-content;
+}
+#bn,#b,#a,#l,#s,#c,#p,#oms,#tms,#ps,#bs,#ys,#omh,#tmh,#pch,#bhs,#yh,#st,#omb,#tmb,#pcb,#dnb,#yb,#ub{
+    width:20%;
+    height:20px;
+}
+#omm,#tmm,#pcm,#dnm,#ym,#um{
+    width:16%;
+    height:20px;
+}
+#b_no,#b_name,#area,#lm,#sn,#cn,#pn{
+    width:98%;
+    height:100%;
+}
+#marks_ssc,#tm_ssc,#perct_ssc,#year_ssc,#board_ssc,#marks_hsc,#tm_hsc,#perct_hsc,#year_hsc,#board_hsc,#stream_hsc,#marks_bachelor,#tm_bachelor,#perct_bachelor,#year_bachelor,#deg_bachelor,#uni_bachelor
+{
+    width:98%;
+    height:30px;
+}
+#marks_master,#tm_master,#perct_master,#year_master,#deg_master,#uni_master
+{
+    width: 98%;
+    height:30px;
+}
+#sp{
+    height:20px;
+}
+
+#s1,#s2,#s3,#s4,#s6,#s7,#s8,#s9{
+    width:5%;
+}
+/* #lbl{
+    text-align: left;
+    background-color: rgb(4, 66, 70);
+    font-weight: 200;
+    color: white;
+    padding-top: 1px;
+    padding-left: 3px;
+    padding-bottom:1px;
+
+} */
+#r1,#r2{
+    width: 20%;
+    height:15px;
+}
+#he1,#he2,#he3,#he4{
+    background-color: rgb(1, 30, 32);
+    font-weight:200;
+    color: white;
+    width:100%;
+    text-align:left;
+    padding-left:3px;
+    padding-bottom: 2px;
+    padding-top: 3px;
+    height: 25px;
+    font-variant: small-caps;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#h{
+    background-color: rgb(4, 66, 70);
+    font-weight: 200;
+    color: white;
+    width:30%;
+    text-align:left;
+    padding-left:3px;
+    padding-bottom: 2px;
+    
+}
+#details{
+    margin-top:4%;
+    position: relative;
+    z-index: unset;
+    height: auto;
+}
+#designation{
+    border:2px solid black;
+    background-color:  rgb(231, 246, 247);
+   
+}
