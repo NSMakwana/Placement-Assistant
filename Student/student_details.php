@@ -49,12 +49,13 @@ $year1_master =$_POST["year_master"];
 
 $drops=$_POST["drops"];
 $remarks=$_POST["remarks"];
+$batch=$_POST["batch"];
 }
 // require_once("connection.php");
 if(isset($_POST["SUBMIT"]))
 {
-        $query="insert into stud_personal(enum,course,name,email,ph_num,block_num,building_name,area,landmark,pincode,city,state,dob)
-        values('".$enum1."','".$course."','".$name1."','".$email1."','".$num1."','".$b_no."','".$build_name."','".$area."','".$lm."','".$pn."','".$cn."','".$sn."','".$dob."')";
+        $query="insert into stud_personal(enum,course,name,email,ph_num,block_num,building_name,area,landmark,pincode,city,state,dob,batch)
+        values('".$enum1."','".$course."','".$name1."','".$email1."','".$num1."','".$b_no."','".$build_name."','".$area."','".$lm."','".$pn."','".$cn."','".$sn."','".$dob."','".$batch."')";
         mysqli_query($conn,$query) or die("something wrong");
 
         $query1="insert into stud_edu(enum,marks_ssc,tm_ssc,perct_ssc,year_ssc,board_ssc,marks_hsc,tm_hsc,perct_hsc,stream_hsc,year_hsc,board_hsc,marks_bachelor,tm_bachelor,perct_bachelor,deg_bachelor,uni_bachelor,year_bachelor,marks_master,tm_master,perct_master,deg_master,uni_master,year_master,drops,remarks)
@@ -273,7 +274,9 @@ if(isset($_POST["SUBMIT"]))
                         </select></td>
                     <td id="s1"></td>
                     <th id="rmh"><label id="lbl">Remarks</label id="label"></th>
-                    <td id="rm"><input type="text" name="remarks" id="remarks"></td>                   
+                    <td id="rm"><input type="text" name="remarks" id="remarks"></td>
+                    <th id="batchh"><label id="lbl">Batch</label id="label"></th>
+                    <td id="bat"><input type="text" name="batch" id="batch" placeholder="2023-2024"></td>                   
                     </tr>
 
                     <tr>

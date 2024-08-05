@@ -46,7 +46,7 @@ td,th{
 }
 
 /* name, rollno heading */
-#nh,#rnh,#ndrh,#rmh{
+#nh,#rnh{
     width:15.2%;
     background-color: rgb(4, 66, 70);
     font-weight: 200;
@@ -57,11 +57,11 @@ td,th{
     padding-bottom:1px;
 }
 /* roll no */
-#rn,#ndr{
+#rn{
     height:25px;
 }
 /* name */
-#n,#rm{
+#n{
     width:101%;
     height:25px;
 }
@@ -88,7 +88,7 @@ td,th{
     height:100%;
 }
 
-#bnh,#bh,#ah,#lh,#sh,#ch,#ph,#omsh,#tmsh,#psh,#bsh,#ysh,#omhh,#tmhh,#pchh,#bhsh,#yhh,#sth,#ombh,#tmbh,#pcbh,#dnbh,#ybh,#ubh{
+#bnh,#bh,#ah,#lh,#sh,#ch,#ph,#omsh,#tmsh,#psh,#bsh,#ysh,#omhh,#tmhh,#pchh,#bhsh,#yhh,#sth,#ombh,#tmbh,#pcbh,#dnbh,#ybh,#ubh,#ndrh,#rmh,#batchh{
     width:10%;
     background-color: rgb(4, 66, 70);
     font-weight: 200;
@@ -112,7 +112,7 @@ td,th{
     padding-bottom:1px;
     height:max-content;
 }
-#bn,#b,#a,#l,#s,#c,#p,#oms,#tms,#ps,#bs,#ys,#omh,#tmh,#pch,#bhs,#yh,#st,#omb,#tmb,#pcb,#dnb,#yb,#ub{
+#bn,#b,#a,#l,#s,#c,#p,#oms,#tms,#ps,#bs,#ys,#omh,#tmh,#pch,#bhs,#yh,#st,#omb,#tmb,#pcb,#dnb,#yb,#ub,#bat,#rm,#ndr{
     width:20%;
     height:20px;
 }
@@ -129,7 +129,7 @@ td,th{
     width:98%;
     height:30px;
 }
-#marks_master,#tm_master,#perct_master,#year_master,#deg_master,#uni_master
+#marks_master,#tm_master,#perct_master,#year_master,#deg_master,#uni_master,#batch
 {
     width: 98%;
     height:30px;

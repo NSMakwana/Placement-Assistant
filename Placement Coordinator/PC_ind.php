@@ -38,7 +38,7 @@
                 
                 $start_from = ($current_page - 1) * $records_per_page;
                 
-                $query="SELECT enum,name from stud_personal where course='".$course."'"." LIMIT $start_from, $records_per_page";
+                $query="SELECT enum,name from stud_personal where course='".$course."' AND batch='2023-2024' LIMIT $start_from, $records_per_page";
                 $result=mysqli_query($conn,$query);
                
                  echo "<table id='d'>";

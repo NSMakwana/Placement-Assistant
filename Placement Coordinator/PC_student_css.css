@@ -14,7 +14,7 @@
     border: 2px solid rgb(2, 59, 86);
     border-radius: 2px;
 }
-#t{
+#t,#t2{
     width:100%;
 }
 #op{
@@ -23,10 +23,22 @@
     height:30px;
     font-size:x-large;
 }
+#f{
+    width:20%;
+    /* border: 1px solid black; */
+    height:30px;
+    /* font-size:x-large; */
+}
 #batch,#program,#submit,#report{
     height:30px;
     width:100px;
     font-size: large;
+}
+#down,#down_all
+{
+    height:30px;
+    width:320px;
+    font-size:15px;
 }
 #b{
     background-color:transparent;

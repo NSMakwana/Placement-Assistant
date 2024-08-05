@@ -10,7 +10,7 @@
         <div id="title">
             <table id="t">
                 <tr>
-                    <td><h3>Student dashboard</h3></td>
+                    <td><h3>Placement Assistant</h3></td>
                     <td id="l"><img id="logo" src="../Images/Gujarat-university-logo1.png" height="50px" width="50px"></td>
                 </tr>
             </table>
@@ -18,9 +18,9 @@
         <div class="nav">
 				
 				
-				<a href="login.php">logout</a>
-				<a class="active" href="../Homepage.php">Home</a>
-                <a  class="noti" href="notification.php">Notifications</a>
+				
+				<a class="active" href="student_home.php">Home</a>
+                <a  class="archived" href="archived.php">Archived</a>
 				</div>
         <div id="option">
             <table id="t2">
