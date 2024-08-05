@@ -31,9 +31,9 @@
                     
                     <td id="op"><center><label for="batch">Batch:</label>
                                         <select id="batch" name="batch">
-                                        <option value="21-22">2020-2022</option>
-                                        <option value="23-24">2022-2024</option>
-                                        <option value="25-26">2024-2026</option>                                        
+                                        <option value="2020-2022">2020-2022</option>
+                                        <option value="2022-2024">2022-2024</option>
+                                        <option value="2024-2026">2024-2026</option>                                        
                                         </select></center></a></td>
                     <td id="op"><center><label for="program">Program:</label>
                                         <select id="program" name="program">

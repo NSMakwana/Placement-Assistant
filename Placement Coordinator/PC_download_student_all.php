@@ -14,14 +14,14 @@ $fields = array('Roll No','Name',"Course","Mobile number","Email-id","Permanent 
 fputcsv($f, $fields, $delimiter); 
 
 // Get records from the database 
-// $query =("SELECT * FROM stud_personal where course='".$course."' and batch='".$batch."'"); 
-$query="SELECT *from stud_personal,stud_edu INNER JOIN stud_personal on stud_personal.sid=stud_edu.sid where stud_personal.course = '".$course."' and stud_personal.batch = '".$batch."'";
+
+$query="SELECT stud_personal.*,stud_edu.* from stud_edu INNER JOIN stud_personal on stud_personal.sid=stud_edu.sid where stud_personal.course = '".$course."' and stud_personal.batch = '".$batch."'";
 $result = mysqli_query($conn, $query);
 if(mysqli_num_rows($result)>0){ 
     $id=1;
     // Output each row of the data, format line as csv and write to file pointer 
     while($row = mysqli_fetch_assoc($result)){ 
-       $addr=array($row['block_num'],$row['buliding_name'],$row['area'],$row['landmark'],$row['city'],$row['state'],$row['pincode']);
+        $addr = $row['block_num'] . ', ' . $row['building_name'] . ', ' . $row['area'] . ', ' . $row['landmark'] . ', ' . $row['city'] . ', ' . $row['state'] . ', ' . $row['pincode'];
         $lineData = array($row['enum'],$row['name'],$row['course'],$row['ph_num'],$row['email'],$addr,$row['dob'],$row['marks_ssc'],$row['tm_ssc'],$row['perct_ssc'],$row['year_ssc'],$row['board_ssc'],$row['marks_hsc'],$row['tm_hsc'],$row['perct_hsc'],$row['year_hsc'],$row['stream_hsc'],$row['board_hsc'],$row['marks_bachelor'],$row['tm_bachelor'],$row['perct_bachelor'],$row['deg_bachelor'],$row['uni_bachelor'],$row['year_bachelor'],$row['marks_master'],$row['tm_master'],$row['perct_master'],$row['deg_master'],$row['uni_master'],$row['year_master'],$row['drops'],$row['remarks']); 
         
     fputcsv($f,$lineData, $delimiter);
